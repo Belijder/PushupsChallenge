@@ -10,7 +10,7 @@ import SwiftUI
 struct PCMainView: View {
     @ObservedObject var vm = PCMainViewViewModel()
     @State private var isMenuShown = false
-    @State private var newWorkoutSheetIsPresented = false
+//    @State private var newWorkoutSheetIsPresented = false
     
     var body: some View {
         ZStack {
@@ -33,9 +33,10 @@ struct PCMainView: View {
                 Spacer()
                 startWorkoutButton
             }
-            .sheet(isPresented: $newWorkoutSheetIsPresented, content: {
-                workoutView
-                    .presentationDetents([.height(300)])
+            .sheet(isPresented: $vm.newWorkoutSheetIsPresented, content: {
+                PCWorkoutView(delegate: vm)
+                    .interactiveDismissDisabled()
+                    .presentationDetents([.height(380)])
             })
             .padding(.horizontal, 20)
             .padding(.top, 20)
@@ -111,36 +112,7 @@ extension PCMainView {
         .frame(width: 220, height: 220)
     }
     
-    
-    private var workoutView: some View {
-        VStack {
-            HStack {
-                Spacer()
-                Button {
-                    vm.siriVoice.stopSpeaking()
-                    vm.stopTraining()
-                    newWorkoutSheetIsPresented = false
-                } label: {
-                    Text("Cancel")
-                }
-            }
-            .padding([.top, .trailing], 20)
-            Button {
-                vm.stopTraining()
-                newWorkoutSheetIsPresented = false
-            } label: {
-                Text("Stop Workout")
-            }
-            .padding(50)
-            Spacer()
-        }
-        .frame(maxWidth: .infinity, maxHeight: 300)
-        .background(.yellow.gradient)
-        .onAppear(perform: vm.startTraining)
-        .interactiveDismissDisabled()
-    }
-    
-    
+
     private var mainCounter: some View {
         Text("\(vm.mainCounter)")
             .font(.largeTitle)
@@ -152,7 +124,7 @@ extension PCMainView {
     
     private var startWorkoutButton: some View {
         Button {
-//            newWorkoutSheetIsPresented = true
+            vm.newWorkoutSheetIsPresented = true
         } label: {
             ZStack {
                 LinearGradient.pcRedGradient

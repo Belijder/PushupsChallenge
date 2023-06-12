@@ -26,14 +26,11 @@ struct PCWorkout {
     }
     
     var workoutDurationString: String {
-        let minutes = workoutDuration / 60
-        let seconds = workoutDuration % 60
-        
-        return "\(minutes):\(seconds)"
+        workoutDuration.asTimeInMinutesString()
     }
     
     static let example = PCWorkout(date: Date.now - 150000,
-                                   workoutDuration: 130,
+                                   workoutDuration: 129,
                                    reps: [19, 20, 21, 16],
                                    totalReps: 76)
 }
