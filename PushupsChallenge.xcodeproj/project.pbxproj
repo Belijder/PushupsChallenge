@@ -8,17 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		4278776829DD7BC100657A18 /* PushupsChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4278776729DD7BC100657A18 /* PushupsChallengeApp.swift */; };
-		4278776A29DD7BC100657A18 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4278776929DD7BC100657A18 /* ContentView.swift */; };
+		4278776A29DD7BC100657A18 /* PCMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4278776929DD7BC100657A18 /* PCMainView.swift */; };
 		4278776C29DD7BC600657A18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4278776B29DD7BC600657A18 /* Assets.xcassets */; };
 		4278776F29DD7BC600657A18 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4278776E29DD7BC600657A18 /* Preview Assets.xcassets */; };
+		4278777629DD7CAE00657A18 /* PCMainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4278777529DD7CAD00657A18 /* PCMainViewViewModel.swift */; };
+		427EFB282A310013009A86CC /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EFB272A310013009A86CC /* Color+Ext.swift */; };
+		427EFB2A2A31DB45009A86CC /* PCMenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EFB292A31DB45009A86CC /* PCMenuButtonView.swift */; };
+		427EFB2D2A31E415009A86CC /* PCWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EFB2C2A31E415009A86CC /* PCWorkout.swift */; };
+		427EFB312A36F84D009A86CC /* PCWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EFB302A36F84D009A86CC /* PCWorkoutView.swift */; };
+		427EFB332A36F886009A86CC /* PCWorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EFB322A36F886009A86CC /* PCWorkoutViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4278776429DD7BC100657A18 /* PushupsChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushupsChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4278776729DD7BC100657A18 /* PushupsChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushupsChallengeApp.swift; sourceTree = "<group>"; };
-		4278776929DD7BC100657A18 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4278776929DD7BC100657A18 /* PCMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCMainView.swift; sourceTree = "<group>"; };
 		4278776B29DD7BC600657A18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4278776E29DD7BC600657A18 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4278777529DD7CAD00657A18 /* PCMainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCMainViewViewModel.swift; sourceTree = "<group>"; };
+		427EFB272A310013009A86CC /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		427EFB292A31DB45009A86CC /* PCMenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCMenuButtonView.swift; sourceTree = "<group>"; };
+		427EFB2C2A31E415009A86CC /* PCWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCWorkout.swift; sourceTree = "<group>"; };
+		427EFB302A36F84D009A86CC /* PCWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCWorkoutView.swift; sourceTree = "<group>"; };
+		427EFB322A36F886009A86CC /* PCWorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCWorkoutViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +64,11 @@
 			isa = PBXGroup;
 			children = (
 				4278776729DD7BC100657A18 /* PushupsChallengeApp.swift */,
-				4278776929DD7BC100657A18 /* ContentView.swift */,
+				427EFB232A30FEC8009A86CC /* Utilities */,
+				427EFB262A30FFFE009A86CC /* Extensions */,
+				427EFB2B2A31E401009A86CC /* Model */,
+				427EFB242A30FEDB009A86CC /* Views */,
+				427EFB252A30FEF9009A86CC /* ViewModels */,
 				4278776B29DD7BC600657A18 /* Assets.xcassets */,
 				4278776D29DD7BC600657A18 /* Preview Content */,
 			);
@@ -65,6 +81,64 @@
 				4278776E29DD7BC600657A18 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		427EFB232A30FEC8009A86CC /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		427EFB242A30FEDB009A86CC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				427EFB2E2A3230D1009A86CC /* Screens */,
+				427EFB2F2A3230DB009A86CC /* UIElements */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		427EFB252A30FEF9009A86CC /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4278777529DD7CAD00657A18 /* PCMainViewViewModel.swift */,
+				427EFB322A36F886009A86CC /* PCWorkoutViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		427EFB262A30FFFE009A86CC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				427EFB272A310013009A86CC /* Color+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		427EFB2B2A31E401009A86CC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				427EFB2C2A31E415009A86CC /* PCWorkout.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		427EFB2E2A3230D1009A86CC /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				4278776929DD7BC100657A18 /* PCMainView.swift */,
+				427EFB302A36F84D009A86CC /* PCWorkoutView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		427EFB2F2A3230DB009A86CC /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				427EFB292A31DB45009A86CC /* PCMenuButtonView.swift */,
+			);
+			path = UIElements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +211,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4278776A29DD7BC100657A18 /* ContentView.swift in Sources */,
+				427EFB312A36F84D009A86CC /* PCWorkoutView.swift in Sources */,
+				4278776A29DD7BC100657A18 /* PCMainView.swift in Sources */,
+				427EFB282A310013009A86CC /* Color+Ext.swift in Sources */,
 				4278776829DD7BC100657A18 /* PushupsChallengeApp.swift in Sources */,
+				427EFB2A2A31DB45009A86CC /* PCMenuButtonView.swift in Sources */,
+				427EFB332A36F886009A86CC /* PCWorkoutViewModel.swift in Sources */,
+				427EFB2D2A31E415009A86CC /* PCWorkout.swift in Sources */,
+				4278777629DD7CAE00657A18 /* PCMainViewViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

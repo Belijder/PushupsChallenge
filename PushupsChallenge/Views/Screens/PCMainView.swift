@@ -1,0 +1,245 @@
+//
+//  MainView.swift
+//  PushupsChallenge
+//
+//  Created by Jakub Zajda on 05/04/2023.
+//
+
+import SwiftUI
+
+struct PCMainView: View {
+    @ObservedObject var vm = PCMainViewViewModel()
+    @State private var isMenuShown = false
+    @State private var newWorkoutSheetIsPresented = false
+    
+    var body: some View {
+        ZStack {
+            background
+                .zIndex(0)
+            VStack {
+                HStack(alignment: .top) {
+                    Spacer()
+                    achievementsButton
+                }
+                Spacer()
+                ZStack {
+                    circleProgress
+                    mainCounter
+                }
+                Spacer()
+                if vm.lastWorkout != nil {
+                    lastWorkoutSummary
+                }
+                Spacer()
+                startWorkoutButton
+            }
+            .sheet(isPresented: $newWorkoutSheetIsPresented, content: {
+                workoutView
+                    .presentationDetents([.height(300)])
+            })
+            .padding(.horizontal, 20)
+            .padding(.top, 20)
+            .zIndex(1)
+            
+            if isMenuShown {
+                menuView
+                    .transition(.move(edge: .leading))
+                    .zIndex(2)
+            }
+            
+            VStack {
+                HStack(alignment: .top) {
+                    menuButton
+                    Spacer()
+                }
+                Spacer()
+            }
+            .padding(.horizontal, 20)
+            .padding(.top, 20)
+            .zIndex(3)
+        }
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        PCMainView()
+    }
+}
+
+extension PCMainView {
+    private var background: some View {
+        LinearGradient.pcVioletGradient
+            .edgesIgnoringSafeArea(.all)
+    }
+    
+    private var menuButton: some View {
+        Button {
+            withAnimation(.easeInOut(duration: 0.3)) {
+                isMenuShown.toggle()
+            }
+            print("Menu button pressed")
+        } label: {
+            PCMenuButtonView(menuIsShown: $isMenuShown)
+        }
+    }
+    
+    
+    private var achievementsButton: some View {
+        Button {
+            print("Achievements button Tapped")
+        } label: {
+            Image(systemName: "medal.fill")
+                .foregroundColor(.white)
+                .font(.system(size: 25))
+        }
+
+    }
+    
+    
+    
+    private var circleProgress: some View {
+        ZStack {
+            Circle()
+                .trim(from: 0.0, to: CGFloat(vm.mainCounter) * 0.0001)
+                .stroke(AngularGradient(gradient: Gradient(colors: [.pcDarkRed, .pcDarkRed, .pcLightRed, .pcDarkRed]),
+                                        center: .center),
+                                        style: StrokeStyle(lineWidth: 25,
+                                        lineCap: vm.mainCounter > 9000 ? .butt : .round))
+                .rotationEffect(.degrees(vm.mainCounter > 9000 ? -90 : -85))
+        }
+        .frame(width: 220, height: 220)
+    }
+    
+    
+    private var workoutView: some View {
+        VStack {
+            HStack {
+                Spacer()
+                Button {
+                    vm.siriVoice.stopSpeaking()
+                    vm.stopTraining()
+                    newWorkoutSheetIsPresented = false
+                } label: {
+                    Text("Cancel")
+                }
+            }
+            .padding([.top, .trailing], 20)
+            Button {
+                vm.stopTraining()
+                newWorkoutSheetIsPresented = false
+            } label: {
+                Text("Stop Workout")
+            }
+            .padding(50)
+            Spacer()
+        }
+        .frame(maxWidth: .infinity, maxHeight: 300)
+        .background(.yellow.gradient)
+        .onAppear(perform: vm.startTraining)
+        .interactiveDismissDisabled()
+    }
+    
+    
+    private var mainCounter: some View {
+        Text("\(vm.mainCounter)")
+            .font(.largeTitle)
+            .fontWeight(.black)
+            .padding(50)
+            .foregroundColor(.white)
+    }
+    
+    
+    private var startWorkoutButton: some View {
+        Button {
+//            newWorkoutSheetIsPresented = true
+        } label: {
+            ZStack {
+                LinearGradient.pcRedGradient
+                    .frame(height: 60)
+                    .cornerRadius(10)
+                    
+                Text("Start Workout")
+                    .foregroundColor(.white)
+            }
+            
+        }
+        .padding(.horizontal, 50)
+        .padding(.bottom, 30)
+    }
+    
+    
+    private var lastWorkoutSummary: some View {
+        VStack(spacing: 4) {
+            Text("Last workout\(vm.lastWorkout?.daysSinceLastTraining ?? "")")
+                .font(.system(size: 16))
+                .foregroundColor(.white)
+            ZStack {
+                RoundedRectangle(cornerRadius: 20)
+                    .foregroundColor(.white)
+                    .opacity(0.1)
+                    .frame(height: 140)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                                        .stroke(Color.pcLightRed, lineWidth: 1)
+                    )
+                    .padding(.horizontal, 20)
+                VStack(alignment: .center, spacing: 10) {
+                    HStack(alignment: .center, spacing: 5) {
+                        Text("Workout time:")
+                            .foregroundColor(.white)
+                            .font(.system(size: 16))
+                            .fontWeight(.light)
+                        Text(vm.lastWorkout?.workoutDurationString ?? "")
+                            .foregroundColor(.white)
+                            .font(.system(size: 16))
+                            .fontWeight(.black)
+                    }
+                    HStack(spacing: 10) {
+                        ForEach(0..<(vm.lastWorkout?.reps.count ?? 0), id: \.self) { index in
+                            VStack(spacing: 0) {
+                                Text("Set \(index + 1)")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 8))
+                                    .fontWeight(.regular)
+                                Text("\(vm.lastWorkout?.reps[index] ?? 0)")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 30))
+                                    .fontWeight(.black)
+                            }
+                        }
+                    }
+                    HStack(alignment: .center, spacing: 5) {
+                        Text("Total reps:")
+                            .foregroundColor(.white)
+                            .font(.system(size: 20))
+                            .fontWeight(.light)
+                        Text("\(vm.lastWorkout?.totalReps ?? 0)")
+                            .foregroundColor(.white)
+                            .font(.system(size: 20))
+                            .fontWeight(.black)
+                    }
+                }
+            }
+            Button {
+                print("Show more statistics button tapped")
+            } label: {
+                Text("Show more statistics")
+                    .font(.system(size: 14))
+                    .fontWeight(.medium)
+                    .foregroundColor(.pcLightBlue)
+            }
+
+        }
+    }
+    
+    private var menuView: some View {
+        ZStack {
+            LinearGradient.pcBlueGradient
+                .padding(.trailing, 100)
+                .edgesIgnoringSafeArea(.all)
+        }
+    }
+    
+    
+}
