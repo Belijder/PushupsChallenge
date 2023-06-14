@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct PCWorkout {
-    let date: Date
-    let workoutDuration: Int
-    let reps: [Int]
-    let totalReps: Int
+class PCWorkout: Object, ObjectKeyIdentifiable {
+    @Persisted(primaryKey: true) var _id: ObjectId
+    @Persisted var date: Date
+    @Persisted var workoutDuration: Int
+    @Persisted var reps: List<Int>
+    @Persisted var totalReps: Int
     
     var daysSinceLastTraining: String {
         let currentDate = Date.now
@@ -29,8 +31,8 @@ struct PCWorkout {
         workoutDuration.asTimeInMinutesString()
     }
     
-    static let example = PCWorkout(date: Date.now - 150000,
-                                   workoutDuration: 129,
-                                   reps: [19, 20, 21, 16],
-                                   totalReps: 76)
+//    static let example = PCWorkout(date: Date.now - 150000,
+//                                   workoutDuration: 129,
+//                                   reps: [19, 20, 21, 16],
+//                                   totalReps: 76)
 }

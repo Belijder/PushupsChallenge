@@ -10,7 +10,6 @@ import SwiftUI
 struct PCMainView: View {
     @ObservedObject var vm = PCMainViewViewModel()
     @State private var isMenuShown = false
-//    @State private var newWorkoutSheetIsPresented = false
     
     var body: some View {
         ZStack {
@@ -27,7 +26,7 @@ struct PCMainView: View {
                     mainCounter
                 }
                 Spacer()
-                if vm.lastWorkout != nil {
+                if vm.workouts.last != nil {
                     lastWorkoutSummary
                 }
                 Spacer()
@@ -143,7 +142,7 @@ extension PCMainView {
     
     private var lastWorkoutSummary: some View {
         VStack(spacing: 4) {
-            Text("Last workout\(vm.lastWorkout?.daysSinceLastTraining ?? "")")
+            Text("Last workout\(vm.workouts.last?.daysSinceLastTraining ?? "")")
                 .font(.system(size: 16))
                 .foregroundColor(.white)
             ZStack {
@@ -162,19 +161,19 @@ extension PCMainView {
                             .foregroundColor(.white)
                             .font(.system(size: 16))
                             .fontWeight(.light)
-                        Text(vm.lastWorkout?.workoutDurationString ?? "")
+                        Text(vm.workouts.last?.workoutDurationString ?? "")
                             .foregroundColor(.white)
                             .font(.system(size: 16))
                             .fontWeight(.black)
                     }
                     HStack(spacing: 10) {
-                        ForEach(0..<(vm.lastWorkout?.reps.count ?? 0), id: \.self) { index in
+                        ForEach(0..<(vm.workouts.last?.reps.count ?? 0), id: \.self) { index in
                             VStack(spacing: 0) {
                                 Text("Set \(index + 1)")
                                     .foregroundColor(.white)
                                     .font(.system(size: 8))
                                     .fontWeight(.regular)
-                                Text("\(vm.lastWorkout?.reps[index] ?? 0)")
+                                Text("\(vm.workouts.last?.reps[index] ?? 0)")
                                     .foregroundColor(.white)
                                     .font(.system(size: 30))
                                     .fontWeight(.black)
@@ -186,7 +185,7 @@ extension PCMainView {
                             .foregroundColor(.white)
                             .font(.system(size: 20))
                             .fontWeight(.light)
-                        Text("\(vm.lastWorkout?.totalReps ?? 0)")
+                        Text("\(vm.workouts.last?.totalReps ?? 0)")
                             .foregroundColor(.white)
                             .font(.system(size: 20))
                             .fontWeight(.black)

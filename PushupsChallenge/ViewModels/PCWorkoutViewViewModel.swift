@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVFoundation
+import RealmSwift
 
 protocol PCWorkoutViewViewModelProtocol: AnyObject {
     func substractFromMainCounter()
@@ -14,6 +15,8 @@ protocol PCWorkoutViewViewModelProtocol: AnyObject {
 }
 
 final class PCWorkoutViewViewModel: ObservableObject, Countable {
+    @ObservedResults(PCWorkout.self) var workouts
+    
     init(delegate: PCWorkoutViewViewModelProtocol?) {
         self.delegate = delegate
         overlayView = PCWorkoutOverlayView(type: .begin, delegate: self)
@@ -92,7 +95,16 @@ final class PCWorkoutViewViewModel: ObservableObject, Countable {
     }
     
     func endWorkout() {
-        //Save workout data
+        proximityObserver.deactivateProximitySensor()
+        
+        //Save workout data to realm
+        let newWorkout = PCWorkout()
+        newWorkout.date = Date()
+        newWorkout.totalReps = totalReps
+        newWorkout.reps.append(objectsIn: previousSets)
+        newWorkout.reps.append(currentReps)
+        newWorkout.workoutDuration = workoutDuration
+        $workouts.append(newWorkout)
         
         delegate?.hideWorkoutSheet()
     }

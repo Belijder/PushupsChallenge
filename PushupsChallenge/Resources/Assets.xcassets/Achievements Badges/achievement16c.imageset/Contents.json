@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "achievement16c.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
