@@ -19,6 +19,9 @@ struct PCMainView: View {
                 HStack(alignment: .top) {
                     Spacer()
                     achievementsButton
+                        .fullScreenCover(isPresented: $vm.achievementsSheetIsPresented) {
+                            PCAchievementsView()
+                        }
                 }
                 Spacer()
                 ZStack {
@@ -88,6 +91,7 @@ extension PCMainView {
     private var achievementsButton: some View {
         Button {
             print("Achievements button Tapped")
+            vm.achievementsSheetIsPresented = true
         } label: {
             Image(systemName: "medal.fill")
                 .foregroundColor(.white)

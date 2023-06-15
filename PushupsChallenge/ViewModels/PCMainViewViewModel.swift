@@ -16,10 +16,9 @@ final class PCMainViewViewModel: ObservableObject {
     
     @ObservedResults(PCWorkout.self, sortDescriptor: "date") var workouts
 
-    
-//    @Published var lastWorkout: PCWorkout?
     @Published var mainCounter = 10000
     @Published var newWorkoutSheetIsPresented = false
+    @Published var achievementsSheetIsPresented = false
     
     func calculateTotalRepsPerformed() -> Int  {
         let reps = workouts.compactMap { $0.totalReps }
