@@ -16,7 +16,7 @@ struct PCAchievementView: View {
             .frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.width / 3)
             .scaledToFit()
             .shadow(radius: 5)
-            .zIndex(vm.isSelected ? 100 : 0)
+//            .zIndex(vm.isSelected ? 100 : 0)
     }
 }
 

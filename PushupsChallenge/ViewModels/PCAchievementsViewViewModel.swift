@@ -13,7 +13,7 @@ final class PCAchievementsViewViewModel: ObservableObject {
     
     init() {
         for achievement in PCAchievement.allCases {
-            var vm = PCAchievementViewViewModel(achievement: achievement, isCompleted: false)
+            let vm = PCAchievementViewViewModel(achievement: achievement, isCompleted: Bool.random())
             achievementsViewModels.append(vm)
         }
     }

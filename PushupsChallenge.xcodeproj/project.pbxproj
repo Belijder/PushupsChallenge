@@ -29,6 +29,7 @@
 		427EFB4A2A3A1CD1009A86CC /* PCAchievementsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EFB492A3A1CD1009A86CC /* PCAchievementsViewViewModel.swift */; };
 		427EFB4C2A3A3050009A86CC /* PCAchievementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EFB4B2A3A3050009A86CC /* PCAchievementView.swift */; };
 		427EFB4E2A3A389B009A86CC /* PCAchievementViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EFB4D2A3A389B009A86CC /* PCAchievementViewViewModel.swift */; };
+		42D17FE62A3B7973007E461F /* PCAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D17FE52A3B7973007E461F /* PCAchievement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		427EFB492A3A1CD1009A86CC /* PCAchievementsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAchievementsViewViewModel.swift; sourceTree = "<group>"; };
 		427EFB4B2A3A3050009A86CC /* PCAchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAchievementView.swift; sourceTree = "<group>"; };
 		427EFB4D2A3A389B009A86CC /* PCAchievementViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAchievementViewViewModel.swift; sourceTree = "<group>"; };
+		42D17FE52A3B7973007E461F /* PCAchievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAchievement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				427EFB2C2A31E415009A86CC /* PCWorkout.swift */,
+				42D17FE52A3B7973007E461F /* PCAchievement.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				427EFB482A3A1CB8009A86CC /* PCAchievementsView.swift in Sources */,
 				427EFB2D2A31E415009A86CC /* PCWorkout.swift in Sources */,
 				4278777629DD7CAE00657A18 /* PCMainViewViewModel.swift in Sources */,
+				42D17FE62A3B7973007E461F /* PCAchievement.swift in Sources */,
 				427EFB4A2A3A1CD1009A86CC /* PCAchievementsViewViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

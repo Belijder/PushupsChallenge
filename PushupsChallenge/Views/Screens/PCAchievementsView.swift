@@ -10,6 +10,10 @@ import SwiftUI
 struct PCAchievementsView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var vm = PCAchievementsViewViewModel()
+    @Namespace var namespace
+    
+    @State var showDetails = false
+    @State var selectedBadge = 0
     
     let columns: [GridItem] = [
         GridItem(.adaptive(minimum: 100)),
@@ -21,8 +25,9 @@ struct PCAchievementsView: View {
         ZStack {
             LinearGradient.pcVioletGradient
                 .ignoresSafeArea()
+                .zIndex(0)
             VStack {
-                ZStack {
+                ZStack(alignment: .top) {
                     HStack {
                         Button {
                             dismiss()
@@ -36,25 +41,77 @@ struct PCAchievementsView: View {
                     VStack {
                         Text("Achievements")
                             .foregroundColor(.white)
-                            .font(.system(size: 30))
+                            .font(.system(size: 25))
                             .fontWeight(.black)
                     }
                 }
                 .padding(.horizontal)
+                .padding(.top, 6)
+                .padding(.bottom, 10)
+                .background(.ultraThinMaterial)
                 ScrollView(.vertical) {
                     LazyVGrid(columns: columns) {
-                        ForEach(vm.achievementsViewModels, id: \.achievement.rawValue) { viewModel in
-                            PCAchievementView(vm: viewModel)
+                        ForEach(vm.achievementsViewModels, id: \.badgeID) { viewModel in
+                            Image(viewModel.imageName)
+                                .resizable()
+                                .matchedGeometryEffect(id: viewModel.badgeID, in: namespace)
+                                .frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.width / 3)
+                                .scaledToFit()
+                                .shadow(radius: 5)
                                 .onTapGesture {
-                                    viewModel.achievementWasTapped()
                                     withAnimation {
-                                        viewModel.isSelected.toggle()
+                                        selectedBadge = viewModel.achievement.rawValue
+                                        showDetails.toggle()
                                     }
                                 }
-                            
                         }
                     }
                 }
+            }
+            .zIndex(1)
+            
+            if showDetails {
+                VStack {
+                    HStack {
+                        Button {
+                            withAnimation {
+                                showDetails.toggle()
+                            }
+                        } label: {
+                            Image(systemName: "xmark")
+                                .foregroundColor(.white)
+                                .font(.system(size: 25))
+                        }
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    .padding(.top, 6)
+                    Image(vm.achievementsViewModels[selectedBadge].imageName)
+                        .resizable()
+                        .matchedGeometryEffect(id: vm.achievementsViewModels[selectedBadge].badgeID, in: namespace)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: UIScreen.main.bounds.width * 0.9)
+                        .shadow(radius: 5)
+                        .padding(.top, 20)
+                    Text(vm.achievementsViewModels[selectedBadge].titleMessage)
+                        .foregroundColor(.pcLightBlue)
+                        .multilineTextAlignment(.center)
+                        .font(.system(size: 30, weight: .black))
+                        .padding(.horizontal, 30)
+                    Text(vm.achievementsViewModels[selectedBadge].additionalText)
+                        .foregroundColor(.pcLightBlue)
+                        .multilineTextAlignment(.center)
+                        .font(.system(size: 20, weight: .medium))
+                        .padding(.horizontal, 30)
+                        .padding(.top, 15)
+                    
+                    
+                    
+                    
+                    Spacer()
+                }
+                .background(.ultraThinMaterial)
+                .zIndex(2)
             }
         }
     }
@@ -63,41 +120,5 @@ struct PCAchievementsView: View {
 struct PCAchievementsView_Previews: PreviewProvider {
     static var previews: some View {
         PCAchievementsView()
-    }
-}
-
-
-enum PCAchievement: Int, CaseIterable {
-    case pushups1000
-    case pushups5000
-    case pushups10000
-    
-    case workoutsInMonth5
-    case workoutsInRow15
-    case workoutsInRow25
-    
-    case oneTimePushups20
-    case oneTimePushups50
-    case oneTimePushups100
-    
-    case workoutsInRow10
-    case workoutsInRow20
-    case workoutsInRow50
-    
-    case totalduration1h
-    case totalduration5h
-    case totalduration10h
-    
-    case other1
-    case other2
-    case other3
-    
-    
-    var unachievedImageName: String {
-        return "achievement\(rawValue + 1)g"
-    }
-    
-    var achievedImageName: String {
-        return "achievement\(rawValue + 1)c"
     }
 }
