@@ -30,6 +30,10 @@
 		427EFB4C2A3A3050009A86CC /* PCAchievementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EFB4B2A3A3050009A86CC /* PCAchievementView.swift */; };
 		427EFB4E2A3A389B009A86CC /* PCAchievementViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EFB4D2A3A389B009A86CC /* PCAchievementViewViewModel.swift */; };
 		42D17FE62A3B7973007E461F /* PCAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D17FE52A3B7973007E461F /* PCAchievement.swift */; };
+		42EFF36E2A3C851D000D80A3 /* PCWorkoutSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFF36D2A3C851D000D80A3 /* PCWorkoutSummaryView.swift */; };
+		42EFF3722A3C868E000D80A3 /* PCWorkoutSummaryViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFF3712A3C868E000D80A3 /* PCWorkoutSummaryViewViewModel.swift */; };
+		42EFF3742A3C9B7F000D80A3 /* PCWorkoutsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFF3732A3C9B7F000D80A3 /* PCWorkoutsListView.swift */; };
+		42EFF3762A3C9BA5000D80A3 /* PCWorkoutsListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFF3752A3C9BA5000D80A3 /* PCWorkoutsListViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +59,10 @@
 		427EFB4B2A3A3050009A86CC /* PCAchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAchievementView.swift; sourceTree = "<group>"; };
 		427EFB4D2A3A389B009A86CC /* PCAchievementViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAchievementViewViewModel.swift; sourceTree = "<group>"; };
 		42D17FE52A3B7973007E461F /* PCAchievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAchievement.swift; sourceTree = "<group>"; };
+		42EFF36D2A3C851D000D80A3 /* PCWorkoutSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCWorkoutSummaryView.swift; sourceTree = "<group>"; };
+		42EFF3712A3C868E000D80A3 /* PCWorkoutSummaryViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCWorkoutSummaryViewViewModel.swift; sourceTree = "<group>"; };
+		42EFF3732A3C9B7F000D80A3 /* PCWorkoutsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCWorkoutsListView.swift; sourceTree = "<group>"; };
+		42EFF3752A3C9BA5000D80A3 /* PCWorkoutsListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCWorkoutsListViewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				427EFB2E2A3230D1009A86CC /* Screens */,
+				42EFF36C2A3C84D6000D80A3 /* Views */,
 				427EFB2F2A3230DB009A86CC /* UIElements */,
 			);
 			path = Views;
@@ -129,11 +138,8 @@
 		427EFB252A30FEF9009A86CC /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				4278777529DD7CAD00657A18 /* PCMainViewViewModel.swift */,
-				427EFB322A36F886009A86CC /* PCWorkoutViewViewModel.swift */,
-				427EFB402A375FB7009A86CC /* PCWorkoutOverlayViewViewModel.swift */,
-				427EFB492A3A1CD1009A86CC /* PCAchievementsViewViewModel.swift */,
-				427EFB4D2A3A389B009A86CC /* PCAchievementViewViewModel.swift */,
+				42EFF36F2A3C8628000D80A3 /* Screens */,
+				42EFF3702A3C8644000D80A3 /* Views */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -163,6 +169,7 @@
 				427EFB302A36F84D009A86CC /* PCWorkoutView.swift */,
 				427EFB3E2A375D60009A86CC /* PCWorkoutOverlayView.swift */,
 				427EFB472A3A1CB7009A86CC /* PCAchievementsView.swift */,
+				42EFF3732A3C9B7F000D80A3 /* PCWorkoutsListView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -171,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				427EFB292A31DB45009A86CC /* PCMenuButtonView.swift */,
-				427EFB4B2A3A3050009A86CC /* PCAchievementView.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -192,6 +198,36 @@
 				4278776B29DD7BC600657A18 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		42EFF36C2A3C84D6000D80A3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				427EFB4B2A3A3050009A86CC /* PCAchievementView.swift */,
+				42EFF36D2A3C851D000D80A3 /* PCWorkoutSummaryView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		42EFF36F2A3C8628000D80A3 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				4278777529DD7CAD00657A18 /* PCMainViewViewModel.swift */,
+				427EFB322A36F886009A86CC /* PCWorkoutViewViewModel.swift */,
+				427EFB402A375FB7009A86CC /* PCWorkoutOverlayViewViewModel.swift */,
+				427EFB492A3A1CD1009A86CC /* PCAchievementsViewViewModel.swift */,
+				42EFF3752A3C9BA5000D80A3 /* PCWorkoutsListViewViewModel.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		42EFF3702A3C8644000D80A3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				427EFB4D2A3A389B009A86CC /* PCAchievementViewViewModel.swift */,
+				42EFF3712A3C868E000D80A3 /* PCWorkoutSummaryViewViewModel.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				427EFB3F2A375D60009A86CC /* PCWorkoutOverlayView.swift in Sources */,
+				42EFF3742A3C9B7F000D80A3 /* PCWorkoutsListView.swift in Sources */,
 				427EFB312A36F84D009A86CC /* PCWorkoutView.swift in Sources */,
 				427EFB3A2A372FC3009A86CC /* ProximityObserverManager.swift in Sources */,
 				4278776A29DD7BC100657A18 /* PCMainView.swift in Sources */,
@@ -283,11 +320,14 @@
 				427EFB382A372BE1009A86CC /* SpeechSynthesizerManager.swift in Sources */,
 				427EFB2A2A31DB45009A86CC /* PCMenuButtonView.swift in Sources */,
 				427EFB4C2A3A3050009A86CC /* PCAchievementView.swift in Sources */,
+				42EFF3762A3C9BA5000D80A3 /* PCWorkoutsListViewViewModel.swift in Sources */,
 				427EFB352A3711A8009A86CC /* Int+Ext.swift in Sources */,
 				427EFB332A36F886009A86CC /* PCWorkoutViewViewModel.swift in Sources */,
+				42EFF3722A3C868E000D80A3 /* PCWorkoutSummaryViewViewModel.swift in Sources */,
 				427EFB482A3A1CB8009A86CC /* PCAchievementsView.swift in Sources */,
 				427EFB2D2A31E415009A86CC /* PCWorkout.swift in Sources */,
 				4278777629DD7CAE00657A18 /* PCMainViewViewModel.swift in Sources */,
+				42EFF36E2A3C851D000D80A3 /* PCWorkoutSummaryView.swift in Sources */,
 				42D17FE62A3B7973007E461F /* PCAchievement.swift in Sources */,
 				427EFB4A2A3A1CD1009A86CC /* PCAchievementsViewViewModel.swift in Sources */,
 			);

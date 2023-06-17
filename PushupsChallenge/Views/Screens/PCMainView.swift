@@ -31,6 +31,9 @@ struct PCMainView: View {
                 Spacer()
                 if vm.workouts.last != nil {
                     lastWorkoutSummary
+                        .fullScreenCover(isPresented: $vm.workoutsSummaryListISPresented) {
+                            PCWorkoutsListView()
+                        }
                 }
                 Spacer()
                 startWorkoutButton
@@ -197,7 +200,7 @@ extension PCMainView {
                 }
             }
             Button {
-                print("Show more statistics button tapped")
+                vm.workoutsSummaryListISPresented = true
             } label: {
                 Text("Show more statistics")
                     .font(.system(size: 14))

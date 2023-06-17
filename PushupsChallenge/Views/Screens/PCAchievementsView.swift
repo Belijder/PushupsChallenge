@@ -34,14 +34,14 @@ struct PCAchievementsView: View {
                         } label: {
                             Image(systemName: "xmark")
                                 .foregroundColor(.white)
-                                .font(.system(size: 25))
+                                .font(.system(size: 20))
                         }
                         Spacer()
                     }
                     VStack {
                         Text("Achievements")
                             .foregroundColor(.white)
-                            .font(.system(size: 25))
+                            .font(.system(size: 20))
                             .fontWeight(.black)
                     }
                 }
@@ -80,7 +80,7 @@ struct PCAchievementsView: View {
                         } label: {
                             Image(systemName: "xmark")
                                 .foregroundColor(.white)
-                                .font(.system(size: 25))
+                                .font(.system(size: 20))
                         }
                         Spacer()
                     }
@@ -104,10 +104,6 @@ struct PCAchievementsView: View {
                         .font(.system(size: 20, weight: .medium))
                         .padding(.horizontal, 30)
                         .padding(.top, 15)
-                    
-                    
-                    
-                    
                     Spacer()
                 }
                 .background(.ultraThinMaterial)

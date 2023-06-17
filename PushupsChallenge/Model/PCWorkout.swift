@@ -30,9 +30,12 @@ class PCWorkout: Object, ObjectKeyIdentifiable {
     var workoutDurationString: String {
         workoutDuration.asTimeInMinutesString()
     }
-    
-//    static let example = PCWorkout(date: Date.now - 150000,
-//                                   workoutDuration: 129,
-//                                   reps: [19, 20, 21, 16],
-//                                   totalReps: 76)
+}
+
+extension PCWorkout {
+    static let example = PCWorkout(value: ["date": Date.now,
+                                           "workoutDuration": 129,
+                                           "reps": [19, 20, 21, 16],
+                                           "totalReps": 76
+                                          ])
 }

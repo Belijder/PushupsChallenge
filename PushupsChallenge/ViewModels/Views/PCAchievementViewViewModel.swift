@@ -10,7 +10,6 @@ import Foundation
 final class PCAchievementViewViewModel: ObservableObject {
     let achievement: PCAchievement
 
-//    @Published var isSelected = false
     @Published var imageName: String
     @Published var badgeID: String
     @Published var titleMessage: String
@@ -23,10 +22,4 @@ final class PCAchievementViewViewModel: ObservableObject {
         self.titleMessage = achievement.title
         self.additionalText = isCompleted ? achievement.completedAdditionalText : achievement.uncompletedAdditionalText
     }
-    
-//    func achievementWasTapped() {
-//        print("Achieviement: \(achievement.rawValue), was tapped()")
-//    }
-    
-
 }
