@@ -60,7 +60,7 @@ struct PCAchievementsView: View {
                                 .shadow(radius: 5)
                                 .onTapGesture {
                                     withAnimation {
-                                        selectedBadge = viewModel.achievement.rawValue
+                                        selectedBadge = viewModel.achievementType.rawValue
                                         showDetails.toggle()
                                     }
                                 }

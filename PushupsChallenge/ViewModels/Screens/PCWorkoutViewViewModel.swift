@@ -97,7 +97,6 @@ final class PCWorkoutViewViewModel: ObservableObject, Countable {
     func endWorkout() {
         proximityObserver.deactivateProximitySensor()
         
-        //Save workout data to realm
         let newWorkout = PCWorkout()
         newWorkout.date = Date()
         newWorkout.totalReps = totalReps
@@ -105,6 +104,8 @@ final class PCWorkoutViewViewModel: ObservableObject, Countable {
         newWorkout.reps.append(currentReps)
         newWorkout.workoutDuration = workoutDuration
         $workouts.append(newWorkout)
+        
+        PCAchievementsManager.shared.checkAchievementsCompletion()
         
         delegate?.hideWorkoutSheet()
     }

@@ -114,6 +114,7 @@ extension PCWorkoutSummaryView {
     private var deleteButton: some View {
         Button {
             vm.deleteWorkout()
+            PCAchievementsManager.shared.checkAchievementsCompletion()
         } label: {
             Image(systemName: "trash")
                 .font(.system(size: 20))

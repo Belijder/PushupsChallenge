@@ -6,16 +6,29 @@
 //
 
 import Foundation
+import RealmSwift
 
 final class PCAchievementsViewViewModel: ObservableObject {
     
+    @ObservedResults(PCAchievement.self, sortDescriptor: SortDescriptor(keyPath: "id", ascending: true)) var achievements
+    
     var achievementsViewModels: [PCAchievementViewViewModel] = []
     
+    var achievementsManager = PCAchievementsManager()
+    
     init() {
-        for achievement in PCAchievement.allCases {
-            let vm = PCAchievementViewViewModel(achievement: achievement, isCompleted: Bool.random())
+        if achievements.isEmpty {
+            PCAchievementType.allCases.forEach { achievementType in
+                let newAchievement = PCAchievement()
+                newAchievement.type = achievementType
+                newAchievement.id = achievementType.rawValue
+                $achievements.append(newAchievement)
+            }
+        }
+        
+        for achievement in achievements {
+            let vm = PCAchievementViewViewModel(achievementType: achievement.type, isCompleted: achievement.isCompleted)
             achievementsViewModels.append(vm)
         }
     }
-    
 }
