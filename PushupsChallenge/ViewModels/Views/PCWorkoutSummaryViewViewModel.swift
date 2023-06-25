@@ -12,8 +12,7 @@ import RealmSwift
 final class PCWorkoutSummaryViewViewModel: ObservableObject {
     @ObservedResults(PCWorkout.self, sortDescriptor: SortDescriptor(keyPath: "date", ascending: false)) var workouts
     
-     let workout: PCWorkout
-    
+    let workout: PCWorkout
     var workoutDate: String
     var duration: String
     @Published var totalReps: Int
@@ -22,7 +21,6 @@ final class PCWorkoutSummaryViewViewModel: ObservableObject {
     
     init(workout: PCWorkout) {
         self.workout = workout
-    
         self.totalReps = workout.totalReps
         self.sets = Array(workout.reps)
         
@@ -33,6 +31,7 @@ final class PCWorkoutSummaryViewViewModel: ObservableObject {
         
         self.duration = workout.workoutDurationString
     }
+    
     
     func deleteWorkout() {
         if let index = workouts.firstIndex(where: { $0.date == self.workout.date }) {

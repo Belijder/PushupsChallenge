@@ -22,8 +22,8 @@ final class ProximityObserverManager {
         }
     }
     
+    
     func activateProximitySensor() {
-        print("activateProximitySensor")
         UIDevice.current.isProximityMonitoringEnabled = true
         
         if UIDevice.current.isProximityMonitoringEnabled {
@@ -31,8 +31,8 @@ final class ProximityObserverManager {
         }
     }
     
+    
     func deactivateProximitySensor() {
-        print("deactivateProximitySensor")
         UIDevice.current.isProximityMonitoringEnabled = false
         NotificationCenter.default.removeObserver(self, name: UIDevice.proximityStateDidChangeNotification, object: UIDevice.current)
     }

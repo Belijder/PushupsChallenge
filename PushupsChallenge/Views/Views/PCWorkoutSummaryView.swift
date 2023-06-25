@@ -9,7 +9,6 @@ import SwiftUI
 import RealmSwift
 
 struct PCWorkoutSummaryView: View {
-    
     @StateObject var vm: PCWorkoutSummaryViewViewModel
     @Binding var isEditing: Bool
     
@@ -48,7 +47,6 @@ struct PCWorkoutSummaryView_Previews: PreviewProvider {
 
 
 extension PCWorkoutSummaryView {
-    
     private var date: some View {
         Text(vm.workoutDate)
             .font(.system(size: 13, weight: .bold))
@@ -57,6 +55,7 @@ extension PCWorkoutSummaryView {
             .frame(maxWidth: .infinity)
             .background(.ultraThinMaterial)
     }
+    
     
     private var sets: some View {
         HStack(spacing: 20) {
@@ -77,6 +76,7 @@ extension PCWorkoutSummaryView {
         .padding(.bottom, 10)
     }
     
+    
     private var repsCounter: some View {
         HStack(alignment: .center, spacing: 5) {
             Text("Total reps:")
@@ -93,6 +93,7 @@ extension PCWorkoutSummaryView {
         .background(.ultraThinMaterial)
         .cornerRadius(8)
     }
+    
     
     private var duration: some View {
         HStack(alignment: .center, spacing: 5) {
@@ -111,6 +112,7 @@ extension PCWorkoutSummaryView {
         .cornerRadius(8)
     }
     
+    
     private var deleteButton: some View {
         Button {
             vm.deleteWorkout()
@@ -126,5 +128,6 @@ extension PCWorkoutSummaryView {
                         .shadow(radius: 2)
                 }
         }
+        .transition(.scale)
     }
 }

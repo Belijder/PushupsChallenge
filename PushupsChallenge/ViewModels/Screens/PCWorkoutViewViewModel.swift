@@ -25,9 +25,6 @@ final class PCWorkoutViewViewModel: ObservableObject, Countable {
     // MARK: - Properties
     private let proximityObserver = ProximityObserverManager()
     private var timer: Timer?
-    
-    
-    
     weak var delegate: PCWorkoutViewViewModelProtocol?
     
     private var workoutDuration = 0 {
@@ -55,7 +52,6 @@ final class PCWorkoutViewViewModel: ObservableObject, Countable {
     
     @Published var displayedPreviousSets = ""
     @Published var totalReps = 0
-    
     @Published var overlayView: PCWorkoutOverlayView?
     
     func startBreak() {
@@ -79,13 +75,13 @@ final class PCWorkoutViewViewModel: ObservableObject, Countable {
     
     private func playDoneSound() {
         guard let soundURL = Bundle.main.url(forResource: "Done", withExtension: "MP3") else {
-            print("Sound file not found")
             return
         }
         
         doneAudioPlayer = try? AVAudioPlayer(contentsOf: soundURL)
         doneAudioPlayer?.play()
     }
+    
     
     private func startNewSet() {
         proximityObserver.activateProximitySensor()
@@ -94,9 +90,9 @@ final class PCWorkoutViewViewModel: ObservableObject, Countable {
         currentReps = 0
     }
     
+    
     func endWorkout() {
         proximityObserver.deactivateProximitySensor()
-        
         let newWorkout = PCWorkout()
         newWorkout.date = Date()
         newWorkout.totalReps = totalReps
@@ -104,9 +100,25 @@ final class PCWorkoutViewViewModel: ObservableObject, Countable {
         newWorkout.reps.append(currentReps)
         newWorkout.workoutDuration = workoutDuration
         $workouts.append(newWorkout)
+
+        
+//        RANDOM WORKOUTS FOR TWO WEEKS
+//        let calendar = Calendar.current
+//        for number in 1...43 {
+//            let newWorkout = PCWorkout()
+//            newWorkout.date = calendar.date(byAdding: .day, value: -number, to: Date.now)!
+//            let randomArrayReps = [Int.random(in: 10...20), Int.random(in: 10...20), Int.random(in: 10...20), Int.random(in: 10...20)]
+//            let totalRandom = randomArrayReps.reduce(0, +)
+//
+//            newWorkout.reps.append(objectsIn: randomArrayReps)
+//            newWorkout.totalReps = totalRandom
+//            newWorkout.workoutDuration = (totalReps * 2) + 90
+//            $workouts.append(newWorkout)
+//
+//        }
+        
         
         PCAchievementsManager.shared.checkAchievementsCompletion()
-        
         delegate?.hideWorkoutSheet()
     }
 }
@@ -116,6 +128,7 @@ extension PCWorkoutViewViewModel: PCWorkoutOverlayViewViewModelProtocol {
         overlayView = nil
         startNewSet()
     }
+    
     
     func startWorkout() {
         overlayView = nil
@@ -128,6 +141,7 @@ extension PCWorkoutViewViewModel: PCWorkoutOverlayViewViewModelProtocol {
         proximityObserver.activateProximitySensor()
     }
     
+    
     func didTappedMainButton(overlayType: PCWorkoutOverlayViewType) {
         switch overlayType {
         case .begin:
@@ -137,8 +151,6 @@ extension PCWorkoutViewViewModel: PCWorkoutOverlayViewViewModelProtocol {
             startNewSet()
         }
     }
-    
-    
     
     
     func didTappedFinishWorkoutButton() {

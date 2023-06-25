@@ -30,7 +30,14 @@ class PCWorkout: Object, ObjectKeyIdentifiable {
     var workoutDurationString: String {
         workoutDuration.asTimeInMinutesString()
     }
+    
+    var shortStringDate: String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        return formatter.string(from: date)
+    }
 }
+
 
 extension PCWorkout {
     static let example = PCWorkout(value: ["date": Date.now,
@@ -38,4 +45,24 @@ extension PCWorkout {
                                            "reps": [19, 20, 21, 16],
                                            "totalReps": 76
                                           ])
+
+    
+    static var arrayOfExamples: [PCWorkout] {
+        var examples: [PCWorkout] = []
+        let calendar = Calendar.current
+        
+        for number in 1...43 {
+            let newWorkout = PCWorkout()
+            newWorkout.date = calendar.date(byAdding: .day, value: -number, to: Date.now)!
+            let randomArrayReps = [Int.random(in: 10...20), Int.random(in: 10...20), Int.random(in: 10...20), Int.random(in: 10...20)]
+            let totalRandom = randomArrayReps.reduce(0, +)
+            
+            newWorkout.reps.append(objectsIn: randomArrayReps)
+            newWorkout.totalReps = totalRandom
+            newWorkout.workoutDuration = (totalRandom * 2) + 90
+            examples.append(newWorkout)
+        }
+        
+        return examples
+    }
 }

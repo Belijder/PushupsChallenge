@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4205E1A32A470363006864AA /* PCChallengeCompletionPercentageStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4205E1A22A470363006864AA /* PCChallengeCompletionPercentageStatisticsView.swift */; };
+		4205E1A52A4703D5006864AA /* PCChallengeCompletionPercentageStatisticsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4205E1A42A4703D5006864AA /* PCChallengeCompletionPercentageStatisticsViewViewModel.swift */; };
+		426FE7B62A474EF7005D04CA /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426FE7B52A474EF7005D04CA /* Double+Ext.swift */; };
 		4278776829DD7BC100657A18 /* PushupsChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4278776729DD7BC100657A18 /* PushupsChallengeApp.swift */; };
 		4278776A29DD7BC100657A18 /* PCMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4278776929DD7BC100657A18 /* PCMainView.swift */; };
 		4278776C29DD7BC600657A18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4278776B29DD7BC600657A18 /* Assets.xcassets */; };
@@ -29,6 +32,7 @@
 		427EFB4A2A3A1CD1009A86CC /* PCAchievementsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EFB492A3A1CD1009A86CC /* PCAchievementsViewViewModel.swift */; };
 		427EFB4C2A3A3050009A86CC /* PCAchievementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EFB4B2A3A3050009A86CC /* PCAchievementView.swift */; };
 		427EFB4E2A3A389B009A86CC /* PCAchievementViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EFB4D2A3A389B009A86CC /* PCAchievementViewViewModel.swift */; };
+		42AB9CC72A48BF6900A34AE5 /* PCTimeScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AB9CC62A48BF6900A34AE5 /* PCTimeScale.swift */; };
 		42D17FE62A3B7973007E461F /* PCAchievementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D17FE52A3B7973007E461F /* PCAchievementType.swift */; };
 		42EFF36E2A3C851D000D80A3 /* PCWorkoutSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFF36D2A3C851D000D80A3 /* PCWorkoutSummaryView.swift */; };
 		42EFF3722A3C868E000D80A3 /* PCWorkoutSummaryViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFF3712A3C868E000D80A3 /* PCWorkoutSummaryViewViewModel.swift */; };
@@ -36,9 +40,18 @@
 		42EFF3762A3C9BA5000D80A3 /* PCWorkoutsListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFF3752A3C9BA5000D80A3 /* PCWorkoutsListViewViewModel.swift */; };
 		42FB23582A3F0E0D00DEB204 /* PCAchievementsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FB23572A3F0E0D00DEB204 /* PCAchievementsManager.swift */; };
 		42FB235A2A3F22E000DEB204 /* PCAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FB23592A3F22E000DEB204 /* PCAchievement.swift */; };
+		42FB235D2A40B3F200DEB204 /* PCPushupsAverangeStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FB235C2A40B3F200DEB204 /* PCPushupsAverangeStatisticsView.swift */; };
+		42FB235F2A40BBFF00DEB204 /* PCStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FB235E2A40BBFF00DEB204 /* PCStatisticsView.swift */; };
+		42FB23612A40DA6E00DEB204 /* PCStatisticsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FB23602A40DA6E00DEB204 /* PCStatisticsViewViewModel.swift */; };
+		42FB23642A41B54500DEB204 /* PCPushupsAverangeStatisticsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FB23632A41B54500DEB204 /* PCPushupsAverangeStatisticsViewViewModel.swift */; };
+		42FB23672A447DCD00DEB204 /* PCPushupsAveragePerSetStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FB23662A447DCC00DEB204 /* PCPushupsAveragePerSetStatisticsView.swift */; };
+		42FB23692A447E4F00DEB204 /* PCPushupsAveragePerSetStatisticsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FB23682A447E4F00DEB204 /* PCPushupsAveragePerSetStatisticsViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4205E1A22A470363006864AA /* PCChallengeCompletionPercentageStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCChallengeCompletionPercentageStatisticsView.swift; sourceTree = "<group>"; };
+		4205E1A42A4703D5006864AA /* PCChallengeCompletionPercentageStatisticsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCChallengeCompletionPercentageStatisticsViewViewModel.swift; sourceTree = "<group>"; };
+		426FE7B52A474EF7005D04CA /* Double+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
 		4278776429DD7BC100657A18 /* PushupsChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushupsChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4278776729DD7BC100657A18 /* PushupsChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushupsChallengeApp.swift; sourceTree = "<group>"; };
 		4278776929DD7BC100657A18 /* PCMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCMainView.swift; sourceTree = "<group>"; };
@@ -60,6 +73,7 @@
 		427EFB492A3A1CD1009A86CC /* PCAchievementsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAchievementsViewViewModel.swift; sourceTree = "<group>"; };
 		427EFB4B2A3A3050009A86CC /* PCAchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAchievementView.swift; sourceTree = "<group>"; };
 		427EFB4D2A3A389B009A86CC /* PCAchievementViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAchievementViewViewModel.swift; sourceTree = "<group>"; };
+		42AB9CC62A48BF6900A34AE5 /* PCTimeScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCTimeScale.swift; sourceTree = "<group>"; };
 		42D17FE52A3B7973007E461F /* PCAchievementType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAchievementType.swift; sourceTree = "<group>"; };
 		42EFF36D2A3C851D000D80A3 /* PCWorkoutSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCWorkoutSummaryView.swift; sourceTree = "<group>"; };
 		42EFF3712A3C868E000D80A3 /* PCWorkoutSummaryViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCWorkoutSummaryViewViewModel.swift; sourceTree = "<group>"; };
@@ -67,6 +81,13 @@
 		42EFF3752A3C9BA5000D80A3 /* PCWorkoutsListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCWorkoutsListViewViewModel.swift; sourceTree = "<group>"; };
 		42FB23572A3F0E0D00DEB204 /* PCAchievementsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAchievementsManager.swift; sourceTree = "<group>"; };
 		42FB23592A3F22E000DEB204 /* PCAchievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAchievement.swift; sourceTree = "<group>"; };
+		42FB235B2A40ABF300DEB204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		42FB235C2A40B3F200DEB204 /* PCPushupsAverangeStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCPushupsAverangeStatisticsView.swift; sourceTree = "<group>"; };
+		42FB235E2A40BBFF00DEB204 /* PCStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCStatisticsView.swift; sourceTree = "<group>"; };
+		42FB23602A40DA6E00DEB204 /* PCStatisticsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCStatisticsViewViewModel.swift; sourceTree = "<group>"; };
+		42FB23632A41B54500DEB204 /* PCPushupsAverangeStatisticsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCPushupsAverangeStatisticsViewViewModel.swift; sourceTree = "<group>"; };
+		42FB23662A447DCC00DEB204 /* PCPushupsAveragePerSetStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCPushupsAveragePerSetStatisticsView.swift; sourceTree = "<group>"; };
+		42FB23682A447E4F00DEB204 /* PCPushupsAveragePerSetStatisticsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCPushupsAveragePerSetStatisticsViewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +122,7 @@
 		4278776629DD7BC100657A18 /* PushupsChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				42FB235B2A40ABF300DEB204 /* Info.plist */,
 				4278776729DD7BC100657A18 /* PushupsChallengeApp.swift */,
 				427EFB232A30FEC8009A86CC /* Utilities */,
 				427EFB362A372BBB009A86CC /* Managers */,
@@ -153,6 +175,7 @@
 			children = (
 				427EFB272A310013009A86CC /* Color+Ext.swift */,
 				427EFB342A3711A8009A86CC /* Int+Ext.swift */,
+				426FE7B52A474EF7005D04CA /* Double+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -163,6 +186,7 @@
 				427EFB2C2A31E415009A86CC /* PCWorkout.swift */,
 				42FB23592A3F22E000DEB204 /* PCAchievement.swift */,
 				42D17FE52A3B7973007E461F /* PCAchievementType.swift */,
+				42AB9CC62A48BF6900A34AE5 /* PCTimeScale.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -175,6 +199,7 @@
 				427EFB3E2A375D60009A86CC /* PCWorkoutOverlayView.swift */,
 				427EFB472A3A1CB7009A86CC /* PCAchievementsView.swift */,
 				42EFF3732A3C9B7F000D80A3 /* PCWorkoutsListView.swift */,
+				42FB235E2A40BBFF00DEB204 /* PCStatisticsView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -211,6 +236,7 @@
 			children = (
 				427EFB4B2A3A3050009A86CC /* PCAchievementView.swift */,
 				42EFF36D2A3C851D000D80A3 /* PCWorkoutSummaryView.swift */,
+				42FB23652A41CF7E00DEB204 /* StatisticsViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -223,6 +249,7 @@
 				427EFB402A375FB7009A86CC /* PCWorkoutOverlayViewViewModel.swift */,
 				427EFB492A3A1CD1009A86CC /* PCAchievementsViewViewModel.swift */,
 				42EFF3752A3C9BA5000D80A3 /* PCWorkoutsListViewViewModel.swift */,
+				42FB23602A40DA6E00DEB204 /* PCStatisticsViewViewModel.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -232,8 +259,29 @@
 			children = (
 				427EFB4D2A3A389B009A86CC /* PCAchievementViewViewModel.swift */,
 				42EFF3712A3C868E000D80A3 /* PCWorkoutSummaryViewViewModel.swift */,
+				42FB23622A41B52800DEB204 /* Statistics */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		42FB23622A41B52800DEB204 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				42FB23632A41B54500DEB204 /* PCPushupsAverangeStatisticsViewViewModel.swift */,
+				42FB23682A447E4F00DEB204 /* PCPushupsAveragePerSetStatisticsViewViewModel.swift */,
+				4205E1A42A4703D5006864AA /* PCChallengeCompletionPercentageStatisticsViewViewModel.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
+		42FB23652A41CF7E00DEB204 /* StatisticsViews */ = {
+			isa = PBXGroup;
+			children = (
+				42FB235C2A40B3F200DEB204 /* PCPushupsAverangeStatisticsView.swift */,
+				42FB23662A447DCC00DEB204 /* PCPushupsAveragePerSetStatisticsView.swift */,
+				4205E1A22A470363006864AA /* PCChallengeCompletionPercentageStatisticsView.swift */,
+			);
+			path = StatisticsViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,26 +362,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42FB235F2A40BBFF00DEB204 /* PCStatisticsView.swift in Sources */,
 				427EFB3F2A375D60009A86CC /* PCWorkoutOverlayView.swift in Sources */,
+				4205E1A32A470363006864AA /* PCChallengeCompletionPercentageStatisticsView.swift in Sources */,
 				42EFF3742A3C9B7F000D80A3 /* PCWorkoutsListView.swift in Sources */,
 				427EFB312A36F84D009A86CC /* PCWorkoutView.swift in Sources */,
 				427EFB3A2A372FC3009A86CC /* ProximityObserverManager.swift in Sources */,
 				4278776A29DD7BC100657A18 /* PCMainView.swift in Sources */,
+				42FB23612A40DA6E00DEB204 /* PCStatisticsViewViewModel.swift in Sources */,
 				427EFB4E2A3A389B009A86CC /* PCAchievementViewViewModel.swift in Sources */,
 				427EFB412A375FB7009A86CC /* PCWorkoutOverlayViewViewModel.swift in Sources */,
+				42AB9CC72A48BF6900A34AE5 /* PCTimeScale.swift in Sources */,
 				427EFB282A310013009A86CC /* Color+Ext.swift in Sources */,
 				4278776829DD7BC100657A18 /* PushupsChallengeApp.swift in Sources */,
 				427EFB382A372BE1009A86CC /* SpeechSynthesizerManager.swift in Sources */,
 				42FB235A2A3F22E000DEB204 /* PCAchievement.swift in Sources */,
 				427EFB2A2A31DB45009A86CC /* PCMenuButtonView.swift in Sources */,
+				42FB235D2A40B3F200DEB204 /* PCPushupsAverangeStatisticsView.swift in Sources */,
+				42FB23642A41B54500DEB204 /* PCPushupsAverangeStatisticsViewViewModel.swift in Sources */,
 				427EFB4C2A3A3050009A86CC /* PCAchievementView.swift in Sources */,
 				42EFF3762A3C9BA5000D80A3 /* PCWorkoutsListViewViewModel.swift in Sources */,
 				427EFB352A3711A8009A86CC /* Int+Ext.swift in Sources */,
 				427EFB332A36F886009A86CC /* PCWorkoutViewViewModel.swift in Sources */,
 				42EFF3722A3C868E000D80A3 /* PCWorkoutSummaryViewViewModel.swift in Sources */,
+				42FB23692A447E4F00DEB204 /* PCPushupsAveragePerSetStatisticsViewViewModel.swift in Sources */,
 				427EFB482A3A1CB8009A86CC /* PCAchievementsView.swift in Sources */,
 				42FB23582A3F0E0D00DEB204 /* PCAchievementsManager.swift in Sources */,
+				4205E1A52A4703D5006864AA /* PCChallengeCompletionPercentageStatisticsViewViewModel.swift in Sources */,
+				426FE7B62A474EF7005D04CA /* Double+Ext.swift in Sources */,
 				427EFB2D2A31E415009A86CC /* PCWorkout.swift in Sources */,
+				42FB23672A447DCD00DEB204 /* PCPushupsAveragePerSetStatisticsView.swift in Sources */,
 				4278777629DD7CAE00657A18 /* PCMainViewViewModel.swift in Sources */,
 				42EFF36E2A3C851D000D80A3 /* PCWorkoutSummaryView.swift in Sources */,
 				42D17FE62A3B7973007E461F /* PCAchievementType.swift in Sources */,
@@ -469,6 +527,7 @@
 				DEVELOPMENT_TEAM = 3FACLSXXJM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PushupsChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -498,6 +557,7 @@
 				DEVELOPMENT_TEAM = 3FACLSXXJM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PushupsChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

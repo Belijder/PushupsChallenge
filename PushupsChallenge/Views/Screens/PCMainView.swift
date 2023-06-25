@@ -9,7 +9,8 @@ import SwiftUI
 
 struct PCMainView: View {
     @ObservedObject var vm = PCMainViewViewModel()
-    @State private var isMenuShown = false
+    @State private var isMenuShown = true
+    @State private var showStatistics = false
     
     var body: some View {
         ZStack {
@@ -75,16 +76,21 @@ struct ContentView_Previews: PreviewProvider {
 
 extension PCMainView {
     private var background: some View {
-        LinearGradient.pcVioletGradient
-            .edgesIgnoringSafeArea(.all)
+        ZStack {
+            Image("LaunchScreen")
+                .resizable()
+                .ignoresSafeArea()
+            LinearGradient.pcVioletGradient.opacity(0.9)
+                .edgesIgnoringSafeArea(.all)
+        }
     }
+    
     
     private var menuButton: some View {
         Button {
             withAnimation(.easeInOut(duration: 0.3)) {
                 isMenuShown.toggle()
             }
-            print("Menu button pressed")
         } label: {
             PCMenuButtonView(menuIsShown: $isMenuShown)
         }
@@ -93,16 +99,14 @@ extension PCMainView {
     
     private var achievementsButton: some View {
         Button {
-            print("Achievements button Tapped")
             vm.achievementsSheetIsPresented = true
         } label: {
             Image(systemName: "medal.fill")
                 .foregroundColor(.white)
                 .font(.system(size: 25))
+                .offset(CGSize(width: 5, height: -3))
         }
-
     }
-    
     
     
     private var circleProgress: some View {
@@ -202,22 +206,34 @@ extension PCMainView {
             Button {
                 vm.workoutsSummaryListISPresented = true
             } label: {
-                Text("Show more statistics")
+                Text("Show more workouts")
                     .font(.system(size: 14))
                     .fontWeight(.medium)
                     .foregroundColor(.pcLightBlue)
             }
-
         }
     }
+    
     
     private var menuView: some View {
         ZStack {
             LinearGradient.pcBlueGradient
-                .padding(.trailing, 100)
                 .edgesIgnoringSafeArea(.all)
+            VStack(alignment: .leading) {
+                Button {
+                    showStatistics = true
+                } label: {
+                    Text("Statistics")
+                        .font(.system(size: 15, weight: .medium))
+                        .foregroundColor(.pcDarkBlue)
+                }
+                .fullScreenCover(isPresented: $showStatistics) {
+                    PCStatisticsView()
+                }
+            }
+            .padding(.top, 100)
+            .padding(.horizontal)
         }
+        .padding(.trailing, 100)
     }
-    
-    
 }
