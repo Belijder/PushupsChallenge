@@ -10,7 +10,6 @@ import SwiftUI
 struct PCMainView: View {
     @ObservedObject var vm = PCMainViewViewModel()
     @State private var isMenuShown = true
-    @State private var showStatistics = false
     
     var body: some View {
         ZStack {
@@ -216,24 +215,6 @@ extension PCMainView {
     
     
     private var menuView: some View {
-        ZStack {
-            LinearGradient.pcBlueGradient
-                .edgesIgnoringSafeArea(.all)
-            VStack(alignment: .leading) {
-                Button {
-                    showStatistics = true
-                } label: {
-                    Text("Statistics")
-                        .font(.system(size: 15, weight: .medium))
-                        .foregroundColor(.pcDarkBlue)
-                }
-                .fullScreenCover(isPresented: $showStatistics) {
-                    PCStatisticsView()
-                }
-            }
-            .padding(.top, 100)
-            .padding(.horizontal)
-        }
-        .padding(.trailing, 100)
+        PCSettingsView()
     }
 }

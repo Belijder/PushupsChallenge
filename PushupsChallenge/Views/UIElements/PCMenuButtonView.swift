@@ -13,27 +13,27 @@ struct PCMenuButtonView: View {
     
     var body: some View {
         VStack(spacing: 5) {
-            Color.white
+            RoundedRectangle(cornerRadius: 2)
                 .frame(width: 25, height: 3)
-                .cornerRadius(2)
                 .rotationEffect(menuIsShown ? .degrees(45) : .degrees(0))
                 .offset(CGSize(width: 0, height: menuIsShown ? 8 : 0))
-            Color.white
+                .foregroundColor(menuIsShown ? .pcDarkViolet : .white)
+            RoundedRectangle(cornerRadius: 2)
                 .frame(width: 25, height: 3)
-                .cornerRadius(2)
                 .opacity(menuIsShown ? 0 : 1)
-            Color.white
+                .foregroundColor(.white)
+            RoundedRectangle(cornerRadius: 2)
                 .frame(width: 25, height: 3)
-                .cornerRadius(2)
                 .rotationEffect(menuIsShown ? .degrees(-45) : .degrees(0))
                 .offset(CGSize(width: 0, height: menuIsShown ? -8 : 0))
+                .foregroundColor(menuIsShown ? .pcDarkViolet : .white)
         }
     }
 }
 
 struct pcMenuButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        PCMenuButtonView(menuIsShown: .constant(true))
+        PCMenuButtonView(menuIsShown: .constant(false))
     }
 }
 

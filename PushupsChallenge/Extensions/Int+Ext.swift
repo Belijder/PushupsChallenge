@@ -31,6 +31,10 @@ extension Int {
         
         var string = ""
         
+        guard hours > 0 || minutes > 0 || seconds > 0 else {
+            return "0m"
+        }
+        
         if hours > 99 {
             return "\(hours)h"
         }

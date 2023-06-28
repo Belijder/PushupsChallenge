@@ -68,6 +68,8 @@ final class PCStatisticsViewViewModel: ObservableObject {
         let calendar = Calendar.current
         let sortedDates = createSortadDatesWithoutDuplications()
         
+        guard sortedDates.count > 0 else { return }
+        
         var longestCounter = 1
         var currentCounter = 1
         var lastDayOfSeries = sortedDates[0]
@@ -141,6 +143,8 @@ final class PCStatisticsViewViewModel: ObservableObject {
         let calendar = Calendar.current
         let sortedDates = createSortadDatesWithoutDuplications()
         let dateComponents = sortedDates.map({ calendar.dateComponents([.month, .year], from: $0) })
+        
+        guard dateComponents.count > 0 else { return }
         
         let countedSet = NSCountedSet(array: dateComponents)
         var maxCount = 0
