@@ -80,8 +80,7 @@ extension PCWorkoutsListView {
                         .padding(.vertical, 4)
                         .background {
                             RoundedRectangle(cornerRadius: 15)
-                                .fill(Color.pcDarkBlue)
-                                .foregroundColor(.pcDarkBlue)
+                                .fill(Color.pcDarkViolet)
                         }
                 }
 
@@ -96,7 +95,11 @@ extension PCWorkoutsListView {
         .padding(.horizontal)
         .padding(.top, 6)
         .padding(.bottom, 10)
-        .background(.ultraThinMaterial)
+        .background(
+            Color.pcDarkBlue
+                .ignoresSafeArea()
+                .shadow(radius: 3, y: 2)
+        )
     }
     
     
@@ -106,7 +109,7 @@ extension PCWorkoutsListView {
                 ZStack {
                     if vm.selectedFilterOption == option {
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.pcLightRed)
+                            .fill(Color.pcDarkViolet)
                             .matchedGeometryEffect(id: "optionBackground", in: namespace)
                     }
                     Text(option.rawValue)
@@ -114,7 +117,7 @@ extension PCWorkoutsListView {
                         .foregroundColor(.white)
                 }
                 .frame(maxWidth: .infinity)
-                .frame(height: 45)
+                .frame(height: 35)
                 .onTapGesture {
                     withAnimation(.spring()) {
                         vm.selectedFilterOption = option
@@ -127,6 +130,7 @@ extension PCWorkoutsListView {
                 .cornerRadius(10)
         })
         .padding(.horizontal)
+        .padding(.vertical, 8)
     }
     
     

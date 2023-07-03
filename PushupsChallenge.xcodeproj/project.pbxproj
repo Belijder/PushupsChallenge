@@ -43,6 +43,7 @@
 		428BF52A2A4F02D200F116DF /* PCPreferencesViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428BF5292A4F02D200F116DF /* PCPreferencesViewViewModel.swift */; };
 		428BF52C2A4F044900F116DF /* PCPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428BF52B2A4F044900F116DF /* PCPreferencesView.swift */; };
 		428BF52E2A4F0BB500F116DF /* PCSpeechLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428BF52D2A4F0BB500F116DF /* PCSpeechLanguage.swift */; };
+		428BF5302A52EC8800F116DF /* PCTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428BF52F2A52EC8800F116DF /* PCTutorialView.swift */; };
 		42AB9CC72A48BF6900A34AE5 /* PCTimeScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AB9CC62A48BF6900A34AE5 /* PCTimeScale.swift */; };
 		42D17FE62A3B7973007E461F /* PCAchievementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D17FE52A3B7973007E461F /* PCAchievementType.swift */; };
 		42EFF36E2A3C851D000D80A3 /* PCWorkoutSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFF36D2A3C851D000D80A3 /* PCWorkoutSummaryView.swift */; };
@@ -95,6 +96,7 @@
 		428BF5292A4F02D200F116DF /* PCPreferencesViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCPreferencesViewViewModel.swift; sourceTree = "<group>"; };
 		428BF52B2A4F044900F116DF /* PCPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCPreferencesView.swift; sourceTree = "<group>"; };
 		428BF52D2A4F0BB500F116DF /* PCSpeechLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCSpeechLanguage.swift; sourceTree = "<group>"; };
+		428BF52F2A52EC8800F116DF /* PCTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCTutorialView.swift; sourceTree = "<group>"; };
 		42AB9CC62A48BF6900A34AE5 /* PCTimeScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCTimeScale.swift; sourceTree = "<group>"; };
 		42D17FE52A3B7973007E461F /* PCAchievementType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAchievementType.swift; sourceTree = "<group>"; };
 		42EFF36D2A3C851D000D80A3 /* PCWorkoutSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCWorkoutSummaryView.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				42893ED92A498C2E008281AD /* PCSettingsView.swift */,
 				4257C5822A4AFC08001D8ED6 /* PCSetRemindersView.swift */,
 				428BF52B2A4F044900F116DF /* PCPreferencesView.swift */,
+				428BF52F2A52EC8800F116DF /* PCTutorialView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				427EFB312A36F84D009A86CC /* PCWorkoutView.swift in Sources */,
 				427EFB3A2A372FC3009A86CC /* ProximityObserverManager.swift in Sources */,
 				4278776A29DD7BC100657A18 /* PCMainView.swift in Sources */,
+				428BF5302A52EC8800F116DF /* PCTutorialView.swift in Sources */,
 				4257C57F2A49FD63001D8ED6 /* PCSettingsViewViewModel.swift in Sources */,
 				42FB23612A40DA6E00DEB204 /* PCStatisticsViewViewModel.swift in Sources */,
 				427EFB4E2A3A389B009A86CC /* PCAchievementViewViewModel.swift in Sources */,

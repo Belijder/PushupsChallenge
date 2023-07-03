@@ -25,6 +25,7 @@ struct PCSettingsView: View {
         ZStack {
             LinearGradient.pcBlueGradient
                 .edgesIgnoringSafeArea(.all)
+                .shadow(color: .black.opacity(0.4), radius: 3, x: 2)
             titleLabel
             VStack(alignment: .leading, spacing: 20) {
                 Group {
@@ -179,7 +180,7 @@ extension PCSettingsView {
                     .foregroundColor(.pcDarkBlue)
             }
             .fullScreenCover(isPresented: $showTutorial) {
-                //Show Tutorial View
+                PCTutorialView()
             }
             Spacer()
         }

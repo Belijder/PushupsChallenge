@@ -81,7 +81,11 @@ extension PCStatisticsView {
         .padding(.horizontal)
         .padding(.top, 6)
         .padding(.bottom, 10)
-        .background(.ultraThinMaterial)
+        .background(
+            Color.pcDarkBlue
+                .ignoresSafeArea()
+                .shadow(radius: 3, y: 2)
+        )
     }
     
     

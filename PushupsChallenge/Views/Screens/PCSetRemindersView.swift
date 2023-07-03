@@ -77,6 +77,8 @@ extension PCSetRemindersView {
         .padding(.bottom, 10)
         .background(
             Color.pcDarkBlue
+                .ignoresSafeArea()
+                .shadow(radius: 3, y: 2)
         )
     }
     

@@ -48,7 +48,13 @@ struct PCAchievementsView: View {
                 .padding(.horizontal)
                 .padding(.top, 6)
                 .padding(.bottom, 10)
-                .background(.ultraThinMaterial)
+                .background(
+                    Color.pcViolet
+                        .ignoresSafeArea()
+                        .shadow(radius: 3, y: 2)
+                )
+                
+                
                 ScrollView(.vertical) {
                     LazyVGrid(columns: columns) {
                         ForEach(vm.achievementsViewModels, id: \.badgeID) { viewModel in
