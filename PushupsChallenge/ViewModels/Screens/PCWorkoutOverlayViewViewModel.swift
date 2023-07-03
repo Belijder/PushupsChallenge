@@ -20,7 +20,13 @@ final class PCWorkoutOverlayViewViewModel: ObservableObject {
     private var counter: Int {
         didSet {
             if counter == 0 {
-                displayedCounter = "Go!"
+                let languageNumber = UserDefaults.standard.integer(forKey: "voiceNumber")
+                if let voice = PCSpeechLanguage(rawValue: languageNumber) {
+                    displeyTitle = ""
+                    displayedCounter = voice.goText
+                } else {
+                    displayedCounter = "Go!"
+                }
             } else {
                 displayedCounter = String(counter)
             }
@@ -53,7 +59,7 @@ final class PCWorkoutOverlayViewViewModel: ObservableObject {
     private func startTimer() {
         switch type {
         case .begin:
-            SpeechSynthesizerManager.shared.say(sentence: "Get ready!")
+            SpeechSynthesizerManager.shared.say(sentence: type.displayTitle)
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
                 if self.counter > 0 {
                     self.counter -= 1
@@ -85,6 +91,11 @@ final class PCWorkoutOverlayViewViewModel: ObservableObject {
     func mainActionButtonTapped() {
         timer?.invalidate()
         delegate?.didTappedMainButton(overlayType: type)
+    }
+    
+    
+    func invalidateTimer() {
+        timer?.invalidate()
     }
     
 }

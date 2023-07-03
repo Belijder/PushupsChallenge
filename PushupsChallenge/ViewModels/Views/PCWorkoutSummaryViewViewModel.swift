@@ -36,6 +36,8 @@ final class PCWorkoutSummaryViewViewModel: ObservableObject {
     func deleteWorkout() {
         if let index = workouts.firstIndex(where: { $0.date == self.workout.date }) {
             withAnimation {
+                let value =  UserDefaults.standard.integer(forKey: "mainCounter") + workouts[index].totalReps
+                UserDefaults.standard.set(value, forKey: "mainCounter")
                 $workouts.remove(atOffsets: IndexSet(integer: index))
             }
         }

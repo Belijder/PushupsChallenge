@@ -10,16 +10,23 @@ import AVFoundation
 class SpeechSynthesizerManager {
     
     static let shared = SpeechSynthesizerManager()
+    
     init() { }
     
     var synthesizer = AVSpeechSynthesizer()
-    let voice = AVSpeechSynthesisVoice(language: "en-US")
-    let quality = AVSpeechSynthesisVoiceQuality(rawValue: 2)
     
     func say(sentence: String, delay: Double = 0) {
         let utterance = AVSpeechUtterance(string: sentence)
-        utterance.voice = voice
+        let number = UserDefaults.standard.integer(forKey: "voiceNumber")
+        
+        if let speechLanguage = PCSpeechLanguage(rawValue: number) {
+            utterance.voice = AVSpeechSynthesisVoice(identifier: speechLanguage.voiceIdentifier)
+        } else {
+            utterance.voice = AVSpeechSynthesisVoice(identifier: PCSpeechLanguage.Samantha.voiceIdentifier)
+        }
+            
         utterance.preUtteranceDelay = delay
         synthesizer.speak(utterance)
     }
 }
+

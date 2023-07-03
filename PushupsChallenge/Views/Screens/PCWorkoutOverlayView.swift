@@ -16,14 +16,16 @@ enum PCWorkoutOverlayViewType {
         case .begin:
             return 5
         case .break:
-            return 30
+            return UserDefaults.standard.integer(forKey: "breakLenght")
         }
     }
     
     var displayTitle: String {
         switch self {
         case .begin:
-            return "Get Ready!"
+            let languageNumber = UserDefaults.standard.integer(forKey: "voiceNumber")
+            let voice = PCSpeechLanguage(rawValue: languageNumber)
+            return voice?.getReadyText ?? "Get Ready!"
         case .break:
             return "Break"
         }
@@ -31,6 +33,8 @@ enum PCWorkoutOverlayViewType {
 }
 
 struct PCWorkoutOverlayView: View {
+    
+    
     @StateObject var vm: PCWorkoutOverlayViewViewModel
     
     
@@ -47,11 +51,12 @@ struct PCWorkoutOverlayView: View {
             
             VStack {
                 Text(vm.displeyTitle)
-                    .font(.system(size: 40))
+                    .font(.system(size: vm.displeyTitle.count > 11 ? 30 : 40))
                     .fontWeight(.black)
                     .foregroundColor(.pcDarkBlue)
                 Text(String(vm.displayedCounter))
-                    .font(.system(size: 160))
+                    .font(.system(size: vm.displayedCounter.count > 4 ? 40 : 160))
+                    .multilineTextAlignment(.center)
                     .fontWeight(.black)
                     .foregroundColor(.pcDarkBlue)
             }
@@ -105,6 +110,7 @@ extension PCWorkoutOverlayView {
             HStack {
                 Spacer()
                 Button {
+                    vm.invalidateTimer()
                     vm.delegate?.didTappedFinishWorkoutButton()
                 } label: {
                     Text("Finish workout")

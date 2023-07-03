@@ -59,10 +59,6 @@ final class PCWorkoutViewViewModel: ObservableObject, Countable {
         proximityObserver.deactivateProximitySensor()
     }
     
-    func stopTraining() {
-        timer?.invalidate()
-        proximityObserver.deactivateProximitySensor()
-    }
   
     func changeCountNumber() {
         withAnimation {

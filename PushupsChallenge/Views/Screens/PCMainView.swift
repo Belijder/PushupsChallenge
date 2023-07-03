@@ -10,6 +10,7 @@ import SwiftUI
 struct PCMainView: View {
     @ObservedObject var vm = PCMainViewViewModel()
     @State private var isMenuShown = true
+    @AppStorage("mainCounter") var mainCounter = 10000
     
     var body: some View {
         ZStack {
@@ -26,7 +27,7 @@ struct PCMainView: View {
                 Spacer()
                 ZStack {
                     circleProgress
-                    mainCounter
+                    mainCounterLabel
                 }
                 Spacer()
                 if vm.workouts.last != nil {
@@ -122,8 +123,8 @@ extension PCMainView {
     }
     
 
-    private var mainCounter: some View {
-        Text("\(vm.mainCounter)")
+    private var mainCounterLabel: some View {
+        Text("\(mainCounter)")
             .font(.largeTitle)
             .fontWeight(.black)
             .padding(50)

@@ -15,9 +15,6 @@ struct PCSetRemindersView: View {
     
     @ObservedResults(PCScheduledReminder.self, sortDescriptor: "day") var reminders
     
-    
-    
-    
     var body: some View {
         ZStack(alignment: .top) {
             LinearGradient.pcBlueGradient
@@ -78,7 +75,9 @@ extension PCSetRemindersView {
         .padding(.horizontal)
         .padding(.top, 6)
         .padding(.bottom, 10)
-        .background(.ultraThinMaterial)
+        .background(
+            Color.pcDarkBlue
+        )
     }
     
     
@@ -190,9 +189,10 @@ extension PCSetRemindersView {
         }
     }
     
+    
     private var messageForNoPermissionGranded: some View {
         VStack {
-            Text("To set reminders, you must agree to receive notifications. Go to Settings > Notifications > 10K Push-ups and agree to it.")
+            Text("To set reminders, you must agree to receive notifications. Go to Settings > Notifications > 10K Push-ups and agree to get notifications.")
                 .foregroundColor(.pcDarkBlue.opacity(0.4))
                 .font(.system(.headline, weight: .bold))
                 .multilineTextAlignment(.center)

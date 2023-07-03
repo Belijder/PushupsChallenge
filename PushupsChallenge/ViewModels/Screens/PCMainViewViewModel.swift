@@ -13,25 +13,12 @@ import RealmSwift
 
 
 final class PCMainViewViewModel: ObservableObject {
-    
     @ObservedResults(PCWorkout.self, sortDescriptor: "date") var workouts
-
-    @Published var mainCounter = 10000
+    @AppStorage("mainCounter") var mainCounter = 10000
+    
     @Published var newWorkoutSheetIsPresented = false
     @Published var achievementsSheetIsPresented = false
     @Published var workoutsSummaryListISPresented = false
-    
-    func calculateTotalRepsPerformed() -> Int  {
-        let reps = workouts.compactMap { $0.totalReps }
-        return reps.reduce(0, +)
-    }
-    
-    init() {
-        let totalRepsPerformed = calculateTotalRepsPerformed()
-        mainCounter = 10000 - totalRepsPerformed
-    }
-        
-
 }
 
 extension PCMainViewViewModel: PCWorkoutViewViewModelProtocol {

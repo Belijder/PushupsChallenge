@@ -18,7 +18,8 @@ struct PCSettingsView: View {
     @State private var showAchievements = false
     @State private var showRemindersView = false
     @State private var showTutorial = false
-    @State var breakLenghtSelection = 2
+    @State private var showPreferencesView = false
+    
     
     var body: some View {
         ZStack {
@@ -34,7 +35,7 @@ struct PCSettingsView: View {
                     writeReviewButton
                     supportCenterButton
                     tutorialButton
-                    breakLenghtPicker
+                    preferences
                 }
                 Spacer()
                 termOfUseButton
@@ -63,7 +64,7 @@ extension PCSettingsView {
                 Spacer()
                 Text("Settings")
                     .font(.system(size: 19, weight: .light))
-                    .foregroundColor(.pcDarkViolet)
+                    .foregroundColor(.pcDarkBlue)
                
             }
             Spacer()
@@ -79,7 +80,7 @@ extension PCSettingsView {
             } label: {
                 Text("Previeus workouts")
                     .font(.system(size: 17, weight: .bold))
-                    .foregroundColor(.pcDarkViolet)
+                    .foregroundColor(.pcDarkBlue)
             }
             .fullScreenCover(isPresented: $showPreviewWorkouts) {
                 PCWorkoutsListView()
@@ -96,7 +97,7 @@ extension PCSettingsView {
             } label: {
                 Text("Statistics")
                     .font(.system(size: 17, weight: .bold))
-                    .foregroundColor(.pcDarkViolet)
+                    .foregroundColor(.pcDarkBlue)
             }
             .fullScreenCover(isPresented: $showStatistics) {
                 PCStatisticsView()
@@ -113,7 +114,7 @@ extension PCSettingsView {
             } label: {
                 Text("Achievements")
                     .font(.system(size: 17, weight: .bold))
-                    .foregroundColor(.pcDarkViolet)
+                    .foregroundColor(.pcDarkBlue)
             }
             .fullScreenCover(isPresented: $showAchievements) {
                 PCAchievementsView()
@@ -130,7 +131,7 @@ extension PCSettingsView {
             } label: {
                 Text("Set reminders")
                     .font(.system(size: 17, weight: .bold))
-                    .foregroundColor(.pcDarkViolet)
+                    .foregroundColor(.pcDarkBlue)
             }
             .fullScreenCover(isPresented: $showRemindersView) {
                 PCSetRemindersView()
@@ -147,7 +148,7 @@ extension PCSettingsView {
             } label: {
                 Text("Write a review")
                     .font(.system(size: 17, weight: .bold))
-                    .foregroundColor(.pcDarkViolet)
+                    .foregroundColor(.pcDarkBlue)
             }
             Spacer()
         }
@@ -161,7 +162,7 @@ extension PCSettingsView {
             } label: {
                 Text("Support center")
                     .font(.system(size: 17, weight: .bold))
-                    .foregroundColor(.pcDarkViolet)
+                    .foregroundColor(.pcDarkBlue)
             }
             Spacer()
         }
@@ -175,7 +176,7 @@ extension PCSettingsView {
             } label: {
                 Text("How to start")
                     .font(.system(size: 17, weight: .bold))
-                    .foregroundColor(.pcDarkViolet)
+                    .foregroundColor(.pcDarkBlue)
             }
             .fullScreenCover(isPresented: $showTutorial) {
                 //Show Tutorial View
@@ -185,21 +186,19 @@ extension PCSettingsView {
     }
     
     
-    private var breakLenghtPicker: some View {
+    private var preferences: some View {
         HStack {
-            Text("Break lenght")
-                .font(.system(size: 17, weight: .bold))
-                .foregroundColor(.pcDarkViolet)
-            Spacer()
-            Picker("Select break lenght", selection: $breakLenghtSelection) {
-                Text("15s").tag(1)
-                Text("30s").tag(2)
-                Text("45s").tag(3)
-                Text("1m").tag(4)
+            Button {
+                showPreferencesView = true
+            } label: {
+                Text("Preferences")
+                    .font(.system(size: 17, weight: .bold))
+                    .foregroundColor(.pcDarkBlue)
             }
-            .frame(width: 80)
-            .tint(Color.pcDarkBlue)
-            .pickerStyle(.menu)
+            .fullScreenCover(isPresented: $showPreferencesView) {
+                PCPreferencesView()
+            }
+            Spacer()
         }
     }
     
@@ -211,7 +210,7 @@ extension PCSettingsView {
             } label: {
                 Text("Term of use")
                     .font(.system(size: 17, weight: .regular))
-                    .foregroundColor(.pcDarkViolet)
+                    .foregroundColor(.pcDarkBlue)
             }
             Spacer()
         }
@@ -225,7 +224,7 @@ extension PCSettingsView {
             } label: {
                 Text("Privacy Policy")
                     .font(.system(size: 17, weight: .regular))
-                    .foregroundColor(.pcDarkViolet)
+                    .foregroundColor(.pcDarkBlue)
             }
             Spacer()
         }
