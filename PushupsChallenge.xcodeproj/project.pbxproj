@@ -15,6 +15,8 @@
 		42684F412A4B0BFE00713999 /* PCScheduledReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42684F402A4B0BFE00713999 /* PCScheduledReminder.swift */; };
 		42684F432A4B0D0700713999 /* PCWeekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42684F422A4B0D0700713999 /* PCWeekday.swift */; };
 		426EFDBE2A5426280009DCC3 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426EFDBD2A5426280009DCC3 /* ActivityViewController.swift */; };
+		426EFDC12A5438570009DCC3 /* PCMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426EFDC02A5438570009DCC3 /* PCMailViewController.swift */; };
+		426EFDC32A5444C30009DCC3 /* UIDevice+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426EFDC22A5444C30009DCC3 /* UIDevice+Ext.swift */; };
 		426FE7B62A474EF7005D04CA /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426FE7B52A474EF7005D04CA /* Double+Ext.swift */; };
 		427332B22A4B240600C582C6 /* PCSetRemindersViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427332B12A4B240600C582C6 /* PCSetRemindersViewViewModel.swift */; };
 		4278776829DD7BC100657A18 /* PushupsChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4278776729DD7BC100657A18 /* PushupsChallengeApp.swift */; };
@@ -71,6 +73,8 @@
 		42684F402A4B0BFE00713999 /* PCScheduledReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCScheduledReminder.swift; sourceTree = "<group>"; };
 		42684F422A4B0D0700713999 /* PCWeekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCWeekday.swift; sourceTree = "<group>"; };
 		426EFDBD2A5426280009DCC3 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		426EFDC02A5438570009DCC3 /* PCMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCMailViewController.swift; sourceTree = "<group>"; };
+		426EFDC22A5444C30009DCC3 /* UIDevice+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Ext.swift"; sourceTree = "<group>"; };
 		426FE7B52A474EF7005D04CA /* Double+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
 		427332B12A4B240600C582C6 /* PCSetRemindersViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCSetRemindersViewViewModel.swift; sourceTree = "<group>"; };
 		4278776429DD7BC100657A18 /* PushupsChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushupsChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +135,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		426EFDBF2A5436300009DCC3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				426EFDBD2A5426280009DCC3 /* ActivityViewController.swift */,
+				426EFDC02A5438570009DCC3 /* PCMailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		4278775B29DD7BC100657A18 = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +170,7 @@
 				427EFB262A30FFFE009A86CC /* Extensions */,
 				427EFB2B2A31E401009A86CC /* Model */,
 				427EFB242A30FEDB009A86CC /* Views */,
+				426EFDBF2A5436300009DCC3 /* ViewControllers */,
 				427EFB252A30FEF9009A86CC /* ViewModels */,
 				427EFB3B2A374DE4009A86CC /* Resources */,
 				4278776D29DD7BC600657A18 /* Preview Content */,
@@ -204,6 +218,7 @@
 				427EFB272A310013009A86CC /* Color+Ext.swift */,
 				427EFB342A3711A8009A86CC /* Int+Ext.swift */,
 				426FE7B52A474EF7005D04CA /* Double+Ext.swift */,
+				426EFDC22A5444C30009DCC3 /* UIDevice+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -226,7 +241,6 @@
 			isa = PBXGroup;
 			children = (
 				4278776929DD7BC100657A18 /* PCMainView.swift */,
-				426EFDBD2A5426280009DCC3 /* ActivityViewController.swift */,
 				427EFB302A36F84D009A86CC /* PCWorkoutView.swift */,
 				427EFB3E2A375D60009A86CC /* PCWorkoutOverlayView.swift */,
 				427EFB472A3A1CB7009A86CC /* PCAchievementsView.swift */,
@@ -411,6 +425,7 @@
 				42EFF3742A3C9B7F000D80A3 /* PCWorkoutsListView.swift in Sources */,
 				4257C5832A4AFC08001D8ED6 /* PCSetRemindersView.swift in Sources */,
 				427EFB312A36F84D009A86CC /* PCWorkoutView.swift in Sources */,
+				426EFDC32A5444C30009DCC3 /* UIDevice+Ext.swift in Sources */,
 				427EFB3A2A372FC3009A86CC /* ProximityObserverManager.swift in Sources */,
 				4278776A29DD7BC100657A18 /* PCMainView.swift in Sources */,
 				428BF5302A52EC8800F116DF /* PCTutorialView.swift in Sources */,
@@ -440,6 +455,7 @@
 				427EFB332A36F886009A86CC /* PCWorkoutViewViewModel.swift in Sources */,
 				42EFF3722A3C868E000D80A3 /* PCWorkoutSummaryCellViewViewModel.swift in Sources */,
 				42FB23692A447E4F00DEB204 /* PCPushupsAveragePerSetStatisticsViewViewModel.swift in Sources */,
+				426EFDC12A5438570009DCC3 /* PCMailViewController.swift in Sources */,
 				427EFB482A3A1CB8009A86CC /* PCAchievementsView.swift in Sources */,
 				42684F412A4B0BFE00713999 /* PCScheduledReminder.swift in Sources */,
 				42FB23582A3F0E0D00DEB204 /* PCAchievementsManager.swift in Sources */,

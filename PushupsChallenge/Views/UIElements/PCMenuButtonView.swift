@@ -17,7 +17,7 @@ struct PCMenuButtonView: View {
                 .frame(width: 25, height: 3)
                 .rotationEffect(menuIsShown ? .degrees(45) : .degrees(0))
                 .offset(CGSize(width: 0, height: menuIsShown ? 8 : 0))
-                .foregroundColor(menuIsShown ? .pcDarkViolet : .white)
+                .foregroundColor(menuIsShown ? .pcDarkBlue : .white)
             RoundedRectangle(cornerRadius: 2)
                 .frame(width: 25, height: 3)
                 .opacity(menuIsShown ? 0 : 1)

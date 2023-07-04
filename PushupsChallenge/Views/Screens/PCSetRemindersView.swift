@@ -10,7 +10,7 @@ import RealmSwift
 
 struct PCSetRemindersView: View {
     @Environment(\.dismiss) var dismiss
-    @State private var notificationAccessGranded = true
+    @State private var notificationAccessGranded = false
     @StateObject var vm = PCSetRemindersViewViewModel()
     
     @ObservedResults(PCScheduledReminder.self, sortDescriptor: "day") var reminders
@@ -38,9 +38,7 @@ struct PCSetRemindersView: View {
         }
         .onAppear {
             PCNotificationManager.shared.requestPermission(completion: { granded in
-                withAnimation {
                     notificationAccessGranded = granded
-                }
             })
         }
     }

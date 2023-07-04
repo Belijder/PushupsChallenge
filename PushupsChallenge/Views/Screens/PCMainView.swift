@@ -9,33 +9,48 @@ import SwiftUI
 
 struct PCMainView: View {
     @ObservedObject var vm = PCMainViewViewModel()
-    @State private var isMenuShown = true
+    @State private var isMenuShown = false
+    @State private var isTutorialShown = false
+    @AppStorage("firstTimeRun") var isFirstTimeRun = true
     @AppStorage("mainCounter") var mainCounter = 10000
     
     var body: some View {
         ZStack {
             background
                 .zIndex(0)
+                
             VStack {
-                HStack(alignment: .top) {
-                    Spacer()
-                    achievementsButton
-                        .fullScreenCover(isPresented: $vm.achievementsSheetIsPresented) {
-                            PCAchievementsView()
-                        }
-                }
-                Spacer()
+                achievementsButton
+                    .fullScreenCover(isPresented: $vm.achievementsSheetIsPresented) {
+                        PCAchievementsView()
+                    }
+                
                 ZStack {
                     circleProgress
                     mainCounterLabel
+                        .onAppear {
+                            if isFirstTimeRun {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                    isTutorialShown = true
+                                }
+                            }
+                        }
+                        .fullScreenCover(isPresented: $isTutorialShown) {
+                            isFirstTimeRun = false
+                        } content: {
+                            PCTutorialView()
+                        }  
                 }
-                Spacer()
+                .padding(.top, 50)
+                
                 if vm.workouts.last != nil {
+                    Spacer()
                     lastWorkoutSummary
                         .fullScreenCover(isPresented: $vm.workoutsSummaryListISPresented) {
                             PCWorkoutsListView()
                         }
                 }
+                
                 Spacer()
                 startWorkoutButton
                     .fullScreenCover(isPresented: $vm.showLastWorkoutSummary) {
@@ -49,6 +64,7 @@ struct PCMainView: View {
             })
             .padding(.horizontal, 20)
             .padding(.top, 20)
+            .frame(maxHeight: .infinity, alignment: .top)
             .zIndex(1)
             
             if isMenuShown {
@@ -57,16 +73,8 @@ struct PCMainView: View {
                     .zIndex(2)
             }
             
-            VStack {
-                HStack(alignment: .top) {
-                    menuButton
-                    Spacer()
-                }
-                Spacer()
-            }
-            .padding(.horizontal, 20)
-            .padding(.top, 20)
-            .zIndex(3)
+            menuButton
+                .zIndex(3)
         }
     }
 }
@@ -86,29 +94,45 @@ extension PCMainView {
             LinearGradient.pcVioletGradient.opacity(0.9)
                 .edgesIgnoringSafeArea(.all)
         }
+        .onTapGesture {
+            withAnimation {
+                isMenuShown = false
+            }
+        }
     }
     
     
     private var menuButton: some View {
-        Button {
-            withAnimation(.easeInOut(duration: 0.3)) {
-                isMenuShown.toggle()
+        VStack {
+            Button {
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    isMenuShown.toggle()
+                }
+            } label: {
+                PCMenuButtonView(menuIsShown: $isMenuShown)
             }
-        } label: {
-            PCMenuButtonView(menuIsShown: $isMenuShown)
+            .padding(20)
+            .background {
+                Color.white.opacity(0.001)
+            }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        
     }
     
     
     private var achievementsButton: some View {
-        Button {
-            vm.achievementsSheetIsPresented = true
-        } label: {
-            Image(systemName: "medal.fill")
-                .foregroundColor(.white)
-                .font(.system(size: 25))
-                .offset(CGSize(width: 5, height: -3))
+        HStack {
+            Button {
+                vm.achievementsSheetIsPresented = true
+            } label: {
+                Image(systemName: "medal.fill")
+                    .foregroundColor(.white)
+                    .font(.system(size: 25))
+                    .offset(CGSize(width: 5, height: -5))
+            }
         }
+        .frame(maxWidth: .infinity, alignment: .topTrailing)
     }
     
     

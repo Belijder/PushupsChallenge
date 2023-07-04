@@ -6,8 +6,7 @@
 //
 
 import SwiftUI
-
-
+import MessageUI
 
 struct PCSettingsView: View {
     
@@ -19,6 +18,8 @@ struct PCSettingsView: View {
     @State private var showRemindersView = false
     @State private var showTutorial = false
     @State private var showPreferencesView = false
+    
+    @State private var isShowingMailView = false
     
     
     var body: some View {
@@ -145,7 +146,7 @@ extension PCSettingsView {
     private var writeReviewButton: some View {
         HStack {
             Button {
-                //Open AppStore for review
+                vm.rateAppButtonTapped()
             } label: {
                 Text("Write a review")
                     .font(.system(size: 17, weight: .bold))
@@ -159,13 +160,16 @@ extension PCSettingsView {
     private var supportCenterButton: some View {
         HStack {
             Button {
-                //Open mailbox
+                MFMailComposeViewController.canSendMail() ? self.isShowingMailView.toggle() : print("🔴 CANT SEND MAIL")
             } label: {
                 Text("Support center")
                     .font(.system(size: 17, weight: .bold))
                     .foregroundColor(.pcDarkBlue)
             }
             Spacer()
+        }
+        .sheet(isPresented: $isShowingMailView) {
+            PCMailViewController(isShowing: $isShowingMailView, result: $vm.result)
         }
     }
     
