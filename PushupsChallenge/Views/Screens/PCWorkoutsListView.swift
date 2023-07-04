@@ -83,7 +83,6 @@ extension PCWorkoutsListView {
                                 .fill(Color.pcDarkViolet)
                         }
                 }
-
             }
             VStack {
                 Text("Workouts")
@@ -147,7 +146,7 @@ extension PCWorkoutsListView {
                             return workout.totalReps >= 0
                         }
                     } )) { workout in
-                        PCWorkoutSummaryView(vm: PCWorkoutSummaryViewViewModel(workout: workout), isEditing: $isEditing)
+                        PCWorkoutSummaryCellView(vm: PCWorkoutSummaryCellViewViewModel(workout: workout), isEditing: $isEditing)
                     }
                 } else {
                     Text(vm.textForEmptyState)

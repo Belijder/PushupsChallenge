@@ -1,5 +1,5 @@
 //
-//  PCWorkoutSummaryViewViewModel.swift
+//  PCWorkoutSummaryCellViewViewModel.swift
 //  PushupsChallenge
 //
 //  Created by Jakub Zajda on 16/06/2023.
@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import RealmSwift
 
-final class PCWorkoutSummaryViewViewModel: ObservableObject {
+final class PCWorkoutSummaryCellViewViewModel: ObservableObject {
     @ObservedResults(PCWorkout.self, sortDescriptor: SortDescriptor(keyPath: "date", ascending: false)) var workouts
     
     let workout: PCWorkout

@@ -1,5 +1,5 @@
 //
-//  PCWorkoutSummaryView.swift
+//  PCWorkoutSummaryCellView.swift
 //  PushupsChallenge
 //
 //  Created by Jakub Zajda on 16/06/2023.
@@ -8,8 +8,8 @@
 import SwiftUI
 import RealmSwift
 
-struct PCWorkoutSummaryView: View {
-    @StateObject var vm: PCWorkoutSummaryViewViewModel
+struct PCWorkoutSummaryCellView: View {
+    @StateObject var vm: PCWorkoutSummaryCellViewViewModel
     @Binding var isEditing: Bool
     
     var body: some View {
@@ -39,14 +39,14 @@ struct PCWorkoutSummaryView: View {
     }
 }
 
-struct PCWorkoutSummaryView_Previews: PreviewProvider {
+struct PCWorkoutSummaryCellView_Previews: PreviewProvider {
     static var previews: some View {
-        PCWorkoutSummaryView(vm: PCWorkoutSummaryViewViewModel(workout: PCWorkout.example), isEditing: .constant(true))
+        PCWorkoutSummaryCellView(vm: PCWorkoutSummaryCellViewViewModel(workout: PCWorkout.example), isEditing: .constant(true))
     }
 }
 
 
-extension PCWorkoutSummaryView {
+extension PCWorkoutSummaryCellView {
     private var date: some View {
         Text(vm.workoutDate)
             .font(.system(size: 13, weight: .bold))

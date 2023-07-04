@@ -19,7 +19,15 @@ final class PCMainViewViewModel: ObservableObject {
     @Published var newWorkoutSheetIsPresented = false
     @Published var achievementsSheetIsPresented = false
     @Published var workoutsSummaryListISPresented = false
+    @Published var showLastWorkoutSummary = false
+    
+    var lastWorkout: PCWorkout? {
+        didSet {
+            showLastWorkoutSummary = true
+        }
+    }
 }
+
 
 extension PCMainViewViewModel: PCWorkoutViewViewModelProtocol {
     func substractFromMainCounter() {
@@ -28,8 +36,15 @@ extension PCMainViewViewModel: PCWorkoutViewViewModelProtocol {
         }
     }
     
-    func hideWorkoutSheet() {
+    func hideWorkoutSheet(workout: PCWorkout?) {
         newWorkoutSheetIsPresented = false
+        
+        guard let workout = workout else {
+            return
+        }
+        
+        lastWorkout = workout
+
     }
 }
 

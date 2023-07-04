@@ -11,7 +11,7 @@ import RealmSwift
 
 protocol PCWorkoutViewViewModelProtocol: AnyObject {
     func substractFromMainCounter()
-    func hideWorkoutSheet()
+    func hideWorkoutSheet(workout: PCWorkout?)
 }
 
 final class PCWorkoutViewViewModel: ObservableObject, Countable {
@@ -115,7 +115,7 @@ final class PCWorkoutViewViewModel: ObservableObject, Countable {
         
         
         PCAchievementsManager.shared.checkAchievementsCompletion()
-        delegate?.hideWorkoutSheet()
+        delegate?.hideWorkoutSheet(workout: newWorkout)
     }
 }
 
@@ -141,7 +141,7 @@ extension PCWorkoutViewViewModel: PCWorkoutOverlayViewViewModelProtocol {
     func didTappedMainButton(overlayType: PCWorkoutOverlayViewType) {
         switch overlayType {
         case .begin:
-            delegate?.hideWorkoutSheet()
+            delegate?.hideWorkoutSheet(workout: nil)
         case .break:
             overlayView = nil
             startNewSet()

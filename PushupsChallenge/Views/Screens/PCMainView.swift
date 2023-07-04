@@ -38,6 +38,9 @@ struct PCMainView: View {
                 }
                 Spacer()
                 startWorkoutButton
+                    .fullScreenCover(isPresented: $vm.showLastWorkoutSummary) {
+                        PCWorkoutSummaryView(vm: PCWorkoutSummaryViewViewModel(workout: vm.lastWorkout!))
+                    }
             }
             .sheet(isPresented: $vm.newWorkoutSheetIsPresented, content: {
                 PCWorkoutView(delegate: vm)

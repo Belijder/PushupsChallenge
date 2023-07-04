@@ -14,6 +14,7 @@
 		4257C5832A4AFC08001D8ED6 /* PCSetRemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4257C5822A4AFC08001D8ED6 /* PCSetRemindersView.swift */; };
 		42684F412A4B0BFE00713999 /* PCScheduledReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42684F402A4B0BFE00713999 /* PCScheduledReminder.swift */; };
 		42684F432A4B0D0700713999 /* PCWeekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42684F422A4B0D0700713999 /* PCWeekday.swift */; };
+		426EFDBE2A5426280009DCC3 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426EFDBD2A5426280009DCC3 /* ActivityViewController.swift */; };
 		426FE7B62A474EF7005D04CA /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426FE7B52A474EF7005D04CA /* Double+Ext.swift */; };
 		427332B22A4B240600C582C6 /* PCSetRemindersViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427332B12A4B240600C582C6 /* PCSetRemindersViewViewModel.swift */; };
 		4278776829DD7BC100657A18 /* PushupsChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4278776729DD7BC100657A18 /* PushupsChallengeApp.swift */; };
@@ -37,7 +38,6 @@
 		427EFB462A386905009A86CC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 427EFB452A386905009A86CC /* RealmSwift */; };
 		427EFB482A3A1CB8009A86CC /* PCAchievementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EFB472A3A1CB7009A86CC /* PCAchievementsView.swift */; };
 		427EFB4A2A3A1CD1009A86CC /* PCAchievementsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EFB492A3A1CD1009A86CC /* PCAchievementsViewViewModel.swift */; };
-		427EFB4C2A3A3050009A86CC /* PCAchievementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EFB4B2A3A3050009A86CC /* PCAchievementView.swift */; };
 		427EFB4E2A3A389B009A86CC /* PCAchievementViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EFB4D2A3A389B009A86CC /* PCAchievementViewViewModel.swift */; };
 		42893EDA2A498C2E008281AD /* PCSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42893ED92A498C2E008281AD /* PCSettingsView.swift */; };
 		428BF52A2A4F02D200F116DF /* PCPreferencesViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428BF5292A4F02D200F116DF /* PCPreferencesViewViewModel.swift */; };
@@ -46,8 +46,10 @@
 		428BF5302A52EC8800F116DF /* PCTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428BF52F2A52EC8800F116DF /* PCTutorialView.swift */; };
 		42AB9CC72A48BF6900A34AE5 /* PCTimeScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AB9CC62A48BF6900A34AE5 /* PCTimeScale.swift */; };
 		42D17FE62A3B7973007E461F /* PCAchievementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D17FE52A3B7973007E461F /* PCAchievementType.swift */; };
-		42EFF36E2A3C851D000D80A3 /* PCWorkoutSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFF36D2A3C851D000D80A3 /* PCWorkoutSummaryView.swift */; };
-		42EFF3722A3C868E000D80A3 /* PCWorkoutSummaryViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFF3712A3C868E000D80A3 /* PCWorkoutSummaryViewViewModel.swift */; };
+		42DE675B2A53168400E9AD74 /* PCWorkoutSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DE675A2A53168400E9AD74 /* PCWorkoutSummaryView.swift */; };
+		42DE675D2A5316EF00E9AD74 /* PCWorkoutSummaryViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DE675C2A5316EF00E9AD74 /* PCWorkoutSummaryViewViewModel.swift */; };
+		42EFF36E2A3C851D000D80A3 /* PCWorkoutSummaryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFF36D2A3C851D000D80A3 /* PCWorkoutSummaryCellView.swift */; };
+		42EFF3722A3C868E000D80A3 /* PCWorkoutSummaryCellViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFF3712A3C868E000D80A3 /* PCWorkoutSummaryCellViewViewModel.swift */; };
 		42EFF3742A3C9B7F000D80A3 /* PCWorkoutsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFF3732A3C9B7F000D80A3 /* PCWorkoutsListView.swift */; };
 		42EFF3762A3C9BA5000D80A3 /* PCWorkoutsListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFF3752A3C9BA5000D80A3 /* PCWorkoutsListViewViewModel.swift */; };
 		42FB23582A3F0E0D00DEB204 /* PCAchievementsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FB23572A3F0E0D00DEB204 /* PCAchievementsManager.swift */; };
@@ -68,6 +70,7 @@
 		4257C5822A4AFC08001D8ED6 /* PCSetRemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCSetRemindersView.swift; sourceTree = "<group>"; };
 		42684F402A4B0BFE00713999 /* PCScheduledReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCScheduledReminder.swift; sourceTree = "<group>"; };
 		42684F422A4B0D0700713999 /* PCWeekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCWeekday.swift; sourceTree = "<group>"; };
+		426EFDBD2A5426280009DCC3 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		426FE7B52A474EF7005D04CA /* Double+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
 		427332B12A4B240600C582C6 /* PCSetRemindersViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCSetRemindersViewViewModel.swift; sourceTree = "<group>"; };
 		4278776429DD7BC100657A18 /* PushupsChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushupsChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,7 +93,6 @@
 		427EFB402A375FB7009A86CC /* PCWorkoutOverlayViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCWorkoutOverlayViewViewModel.swift; sourceTree = "<group>"; };
 		427EFB472A3A1CB7009A86CC /* PCAchievementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAchievementsView.swift; sourceTree = "<group>"; };
 		427EFB492A3A1CD1009A86CC /* PCAchievementsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAchievementsViewViewModel.swift; sourceTree = "<group>"; };
-		427EFB4B2A3A3050009A86CC /* PCAchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAchievementView.swift; sourceTree = "<group>"; };
 		427EFB4D2A3A389B009A86CC /* PCAchievementViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAchievementViewViewModel.swift; sourceTree = "<group>"; };
 		42893ED92A498C2E008281AD /* PCSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCSettingsView.swift; sourceTree = "<group>"; };
 		428BF5292A4F02D200F116DF /* PCPreferencesViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCPreferencesViewViewModel.swift; sourceTree = "<group>"; };
@@ -99,8 +101,10 @@
 		428BF52F2A52EC8800F116DF /* PCTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCTutorialView.swift; sourceTree = "<group>"; };
 		42AB9CC62A48BF6900A34AE5 /* PCTimeScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCTimeScale.swift; sourceTree = "<group>"; };
 		42D17FE52A3B7973007E461F /* PCAchievementType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAchievementType.swift; sourceTree = "<group>"; };
-		42EFF36D2A3C851D000D80A3 /* PCWorkoutSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCWorkoutSummaryView.swift; sourceTree = "<group>"; };
-		42EFF3712A3C868E000D80A3 /* PCWorkoutSummaryViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCWorkoutSummaryViewViewModel.swift; sourceTree = "<group>"; };
+		42DE675A2A53168400E9AD74 /* PCWorkoutSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCWorkoutSummaryView.swift; sourceTree = "<group>"; };
+		42DE675C2A5316EF00E9AD74 /* PCWorkoutSummaryViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCWorkoutSummaryViewViewModel.swift; sourceTree = "<group>"; };
+		42EFF36D2A3C851D000D80A3 /* PCWorkoutSummaryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCWorkoutSummaryCellView.swift; sourceTree = "<group>"; };
+		42EFF3712A3C868E000D80A3 /* PCWorkoutSummaryCellViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCWorkoutSummaryCellViewViewModel.swift; sourceTree = "<group>"; };
 		42EFF3732A3C9B7F000D80A3 /* PCWorkoutsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCWorkoutsListView.swift; sourceTree = "<group>"; };
 		42EFF3752A3C9BA5000D80A3 /* PCWorkoutsListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCWorkoutsListViewViewModel.swift; sourceTree = "<group>"; };
 		42FB23572A3F0E0D00DEB204 /* PCAchievementsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAchievementsManager.swift; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				4278776929DD7BC100657A18 /* PCMainView.swift */,
+				426EFDBD2A5426280009DCC3 /* ActivityViewController.swift */,
 				427EFB302A36F84D009A86CC /* PCWorkoutView.swift */,
 				427EFB3E2A375D60009A86CC /* PCWorkoutOverlayView.swift */,
 				427EFB472A3A1CB7009A86CC /* PCAchievementsView.swift */,
@@ -231,6 +236,7 @@
 				4257C5822A4AFC08001D8ED6 /* PCSetRemindersView.swift */,
 				428BF52B2A4F044900F116DF /* PCPreferencesView.swift */,
 				428BF52F2A52EC8800F116DF /* PCTutorialView.swift */,
+				42DE675A2A53168400E9AD74 /* PCWorkoutSummaryView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -266,8 +272,7 @@
 		42EFF36C2A3C84D6000D80A3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				427EFB4B2A3A3050009A86CC /* PCAchievementView.swift */,
-				42EFF36D2A3C851D000D80A3 /* PCWorkoutSummaryView.swift */,
+				42EFF36D2A3C851D000D80A3 /* PCWorkoutSummaryCellView.swift */,
 				427C5F3C2A4B6C5D0056A4E3 /* PCReminderCellView.swift */,
 				42FB23652A41CF7E00DEB204 /* StatisticsViews */,
 			);
@@ -286,6 +291,7 @@
 				4257C57E2A49FD63001D8ED6 /* PCSettingsViewViewModel.swift */,
 				427332B12A4B240600C582C6 /* PCSetRemindersViewViewModel.swift */,
 				428BF5292A4F02D200F116DF /* PCPreferencesViewViewModel.swift */,
+				42DE675C2A5316EF00E9AD74 /* PCWorkoutSummaryViewViewModel.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -294,7 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				427EFB4D2A3A389B009A86CC /* PCAchievementViewViewModel.swift */,
-				42EFF3712A3C868E000D80A3 /* PCWorkoutSummaryViewViewModel.swift */,
+				42EFF3712A3C868E000D80A3 /* PCWorkoutSummaryCellViewViewModel.swift */,
 				42FB23622A41B52800DEB204 /* Statistics */,
 			);
 			path = Views;
@@ -417,20 +423,22 @@
 				42AB9CC72A48BF6900A34AE5 /* PCTimeScale.swift in Sources */,
 				427EFB282A310013009A86CC /* Color+Ext.swift in Sources */,
 				42684F432A4B0D0700713999 /* PCWeekday.swift in Sources */,
+				426EFDBE2A5426280009DCC3 /* ActivityViewController.swift in Sources */,
 				428BF52C2A4F044900F116DF /* PCPreferencesView.swift in Sources */,
 				4278776829DD7BC100657A18 /* PushupsChallengeApp.swift in Sources */,
 				4257C5812A4AFAEF001D8ED6 /* PCNotificationManager.swift in Sources */,
 				427EFB382A372BE1009A86CC /* SpeechSynthesizerManager.swift in Sources */,
 				42FB235A2A3F22E000DEB204 /* PCAchievement.swift in Sources */,
 				427EFB2A2A31DB45009A86CC /* PCMenuButtonView.swift in Sources */,
+				42DE675D2A5316EF00E9AD74 /* PCWorkoutSummaryViewViewModel.swift in Sources */,
 				42FB235D2A40B3F200DEB204 /* PCPushupsAverangeStatisticsView.swift in Sources */,
 				42FB23642A41B54500DEB204 /* PCPushupsAverangeStatisticsViewViewModel.swift in Sources */,
-				427EFB4C2A3A3050009A86CC /* PCAchievementView.swift in Sources */,
+				42DE675B2A53168400E9AD74 /* PCWorkoutSummaryView.swift in Sources */,
 				42EFF3762A3C9BA5000D80A3 /* PCWorkoutsListViewViewModel.swift in Sources */,
 				427EFB352A3711A8009A86CC /* Int+Ext.swift in Sources */,
 				428BF52E2A4F0BB500F116DF /* PCSpeechLanguage.swift in Sources */,
 				427EFB332A36F886009A86CC /* PCWorkoutViewViewModel.swift in Sources */,
-				42EFF3722A3C868E000D80A3 /* PCWorkoutSummaryViewViewModel.swift in Sources */,
+				42EFF3722A3C868E000D80A3 /* PCWorkoutSummaryCellViewViewModel.swift in Sources */,
 				42FB23692A447E4F00DEB204 /* PCPushupsAveragePerSetStatisticsViewViewModel.swift in Sources */,
 				427EFB482A3A1CB8009A86CC /* PCAchievementsView.swift in Sources */,
 				42684F412A4B0BFE00713999 /* PCScheduledReminder.swift in Sources */,
@@ -440,7 +448,7 @@
 				427EFB2D2A31E415009A86CC /* PCWorkout.swift in Sources */,
 				42FB23672A447DCD00DEB204 /* PCPushupsAveragePerSetStatisticsView.swift in Sources */,
 				4278777629DD7CAE00657A18 /* PCMainViewViewModel.swift in Sources */,
-				42EFF36E2A3C851D000D80A3 /* PCWorkoutSummaryView.swift in Sources */,
+				42EFF36E2A3C851D000D80A3 /* PCWorkoutSummaryCellView.swift in Sources */,
 				42D17FE62A3B7973007E461F /* PCAchievementType.swift in Sources */,
 				428BF52A2A4F02D200F116DF /* PCPreferencesViewViewModel.swift in Sources */,
 				427EFB4A2A3A1CD1009A86CC /* PCAchievementsViewViewModel.swift in Sources */,
@@ -576,21 +584,26 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PushupsChallenge/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "10K Push-ups";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jakubzajda.PushupsChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -606,21 +619,26 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PushupsChallenge/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "10K Push-ups";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jakubzajda.PushupsChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
