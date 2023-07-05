@@ -17,6 +17,9 @@
 		426EFDBE2A5426280009DCC3 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426EFDBD2A5426280009DCC3 /* ActivityViewController.swift */; };
 		426EFDC12A5438570009DCC3 /* PCMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426EFDC02A5438570009DCC3 /* PCMailViewController.swift */; };
 		426EFDC32A5444C30009DCC3 /* UIDevice+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426EFDC22A5444C30009DCC3 /* UIDevice+Ext.swift */; };
+		426EFDC52A5468B90009DCC3 /* PCChallengeSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426EFDC42A5468B90009DCC3 /* PCChallengeSummaryView.swift */; };
+		426EFDC72A5468C90009DCC3 /* PCChallengeSummaryViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426EFDC62A5468C90009DCC3 /* PCChallengeSummaryViewViewModel.swift */; };
+		426EFDC92A55C6420009DCC3 /* ChartAnnotationLayoutProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426EFDC82A55C6420009DCC3 /* ChartAnnotationLayoutProtocol.swift */; };
 		426FE7B62A474EF7005D04CA /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426FE7B52A474EF7005D04CA /* Double+Ext.swift */; };
 		427332B22A4B240600C582C6 /* PCSetRemindersViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427332B12A4B240600C582C6 /* PCSetRemindersViewViewModel.swift */; };
 		4278776829DD7BC100657A18 /* PushupsChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4278776729DD7BC100657A18 /* PushupsChallengeApp.swift */; };
@@ -75,6 +78,9 @@
 		426EFDBD2A5426280009DCC3 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		426EFDC02A5438570009DCC3 /* PCMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCMailViewController.swift; sourceTree = "<group>"; };
 		426EFDC22A5444C30009DCC3 /* UIDevice+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Ext.swift"; sourceTree = "<group>"; };
+		426EFDC42A5468B90009DCC3 /* PCChallengeSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCChallengeSummaryView.swift; sourceTree = "<group>"; };
+		426EFDC62A5468C90009DCC3 /* PCChallengeSummaryViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCChallengeSummaryViewViewModel.swift; sourceTree = "<group>"; };
+		426EFDC82A55C6420009DCC3 /* ChartAnnotationLayoutProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartAnnotationLayoutProtocol.swift; sourceTree = "<group>"; };
 		426FE7B52A474EF7005D04CA /* Double+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
 		427332B12A4B240600C582C6 /* PCSetRemindersViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCSetRemindersViewViewModel.swift; sourceTree = "<group>"; };
 		4278776429DD7BC100657A18 /* PushupsChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushupsChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,6 +257,7 @@
 				428BF52B2A4F044900F116DF /* PCPreferencesView.swift */,
 				428BF52F2A52EC8800F116DF /* PCTutorialView.swift */,
 				42DE675A2A53168400E9AD74 /* PCWorkoutSummaryView.swift */,
+				426EFDC42A5468B90009DCC3 /* PCChallengeSummaryView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -306,6 +313,7 @@
 				427332B12A4B240600C582C6 /* PCSetRemindersViewViewModel.swift */,
 				428BF5292A4F02D200F116DF /* PCPreferencesViewViewModel.swift */,
 				42DE675C2A5316EF00E9AD74 /* PCWorkoutSummaryViewViewModel.swift */,
+				426EFDC62A5468C90009DCC3 /* PCChallengeSummaryViewViewModel.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -326,6 +334,7 @@
 				42FB23632A41B54500DEB204 /* PCPushupsAverangeStatisticsViewViewModel.swift */,
 				42FB23682A447E4F00DEB204 /* PCPushupsAveragePerSetStatisticsViewViewModel.swift */,
 				4205E1A42A4703D5006864AA /* PCChallengeCompletionPercentageStatisticsViewViewModel.swift */,
+				426EFDC82A55C6420009DCC3 /* ChartAnnotationLayoutProtocol.swift */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -438,6 +447,7 @@
 				42AB9CC72A48BF6900A34AE5 /* PCTimeScale.swift in Sources */,
 				427EFB282A310013009A86CC /* Color+Ext.swift in Sources */,
 				42684F432A4B0D0700713999 /* PCWeekday.swift in Sources */,
+				426EFDC52A5468B90009DCC3 /* PCChallengeSummaryView.swift in Sources */,
 				426EFDBE2A5426280009DCC3 /* ActivityViewController.swift in Sources */,
 				428BF52C2A4F044900F116DF /* PCPreferencesView.swift in Sources */,
 				4278776829DD7BC100657A18 /* PushupsChallengeApp.swift in Sources */,
@@ -456,10 +466,12 @@
 				42EFF3722A3C868E000D80A3 /* PCWorkoutSummaryCellViewViewModel.swift in Sources */,
 				42FB23692A447E4F00DEB204 /* PCPushupsAveragePerSetStatisticsViewViewModel.swift in Sources */,
 				426EFDC12A5438570009DCC3 /* PCMailViewController.swift in Sources */,
+				426EFDC72A5468C90009DCC3 /* PCChallengeSummaryViewViewModel.swift in Sources */,
 				427EFB482A3A1CB8009A86CC /* PCAchievementsView.swift in Sources */,
 				42684F412A4B0BFE00713999 /* PCScheduledReminder.swift in Sources */,
 				42FB23582A3F0E0D00DEB204 /* PCAchievementsManager.swift in Sources */,
 				4205E1A52A4703D5006864AA /* PCChallengeCompletionPercentageStatisticsViewViewModel.swift in Sources */,
+				426EFDC92A55C6420009DCC3 /* ChartAnnotationLayoutProtocol.swift in Sources */,
 				426FE7B62A474EF7005D04CA /* Double+Ext.swift in Sources */,
 				427EFB2D2A31E415009A86CC /* PCWorkout.swift in Sources */,
 				42FB23672A447DCD00DEB204 /* PCPushupsAveragePerSetStatisticsView.swift in Sources */,

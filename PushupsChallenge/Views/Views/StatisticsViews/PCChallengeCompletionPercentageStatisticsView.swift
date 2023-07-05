@@ -11,6 +11,7 @@ import Charts
 struct PCChallengeCompletionPercentageStatisticsView: View {
     @StateObject var vm = PCChallengeCompletionPercentageStatisticsViewViewModel()
     @State private var currentActiveData: PCChallengeCompletionPercentageStatisticsViewViewModel.DataForChart?
+    @State private var currentLocation: CGPoint?
     @State private var isExpanded = false
     @Namespace private var namespace
     
@@ -104,98 +105,105 @@ extension PCChallengeCompletionPercentageStatisticsView {
     
     
     private var chart: some View {
-        Chart {
-            ForEach(vm.filteredDataForChart) { data in
-                if vm.currentFilterOption == .all {
-                    LineMark(
-                        x: .value("Date", data.date, unit: .day),
-                        y: .value("Reps", data.totalPushups)
-                    )
-                    .foregroundStyle(Color.pcDarkViolet.gradient)
-                    .interpolationMethod(.cardinal)
+        GeometryReader { geometry in
+            Chart {
+                ForEach(vm.filteredDataForChart) { data in
+                    if vm.currentFilterOption == .all {
+                        LineMark(
+                            x: .value("Date", data.date, unit: .day),
+                            y: .value("Reps", data.totalPushups)
+                        )
+                        .foregroundStyle(Color.pcDarkViolet.gradient)
+                        .interpolationMethod(.cardinal)
 
-                    AreaMark(
-                        x: .value("Date", data.date, unit: .day),
-                        y: .value("Reps", data.totalPushups)
-                    )
-                    .foregroundStyle(LinearGradient(colors: [Color.pcDarkViolet, .clear], startPoint: .top, endPoint: .bottom).opacity(0.5))
-                    .interpolationMethod(.cardinal)
-                } else {
-                    BarMark(
-                        x: .value("Date", data.date, unit: .day),
-                        y: .value("Reps", data.totalPushups)
-                    )
-                    .foregroundStyle(Color.pcDarkViolet.gradient)
+                        AreaMark(
+                            x: .value("Date", data.date, unit: .day),
+                            y: .value("Reps", data.totalPushups)
+                        )
+                        .foregroundStyle(LinearGradient(colors: [Color.pcDarkViolet, .clear], startPoint: .top, endPoint: .bottom).opacity(0.5))
+                        .interpolationMethod(.cardinal)
+                    } else {
+                        BarMark(
+                            x: .value("Date", data.date, unit: .day),
+                            y: .value("Reps", data.totalPushups)
+                        )
+                        .foregroundStyle(Color.pcDarkViolet.gradient)
 
-                }
+                    }
 
-                if let currentActiveData, currentActiveData.id == data.id {
-                    RuleMark(x: .value("Date", currentActiveData.date, unit: .day))
-                        .lineStyle(StrokeStyle(lineWidth: 1))
-                        .foregroundStyle(Color.pcLightRed)
-                        .annotation(position: .top) {
-                            VStack(spacing: -5) {
-                                Text(currentActiveData.shortStringDate)
-                                    .font(.system(.caption))
-                                    .foregroundColor(.pcDarkBlue.opacity(0.5))
-                                    .fontWeight(.light)
-                                Text(String(currentActiveData.totalPushups))
-                                    .font(.system(.title))
-                                    .foregroundColor(.pcDarkBlue)
-                                    .fontWeight(.black)
+                    if let currentActiveData, currentActiveData.id == data.id, let currentLocation {
+                        RuleMark(x: .value("Date", currentActiveData.date, unit: .day))
+                            .lineStyle(StrokeStyle(lineWidth: 1))
+                            .foregroundStyle(Color.pcLightRed)
+                            .annotation(position: vm.calculateAnnotationPosition(annotationWidth: 90,
+                                                                                 xPosition: currentLocation.x,
+                                                                                 chartWidth: geometry.size.width)) {
+                                VStack(spacing: -5) {
+                                    Text(currentActiveData.shortStringDate)
+                                        .font(.system(.caption))
+                                        .foregroundColor(.pcDarkBlue.opacity(0.5))
+                                        .fontWeight(.light)
+                                    Text(String(currentActiveData.totalPushups))
+                                        .font(.system(.title))
+                                        .foregroundColor(.pcDarkBlue)
+                                        .fontWeight(.black)
+                                }
+                                .frame(width: 90)
+                                .padding(6)
+                                .background {
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .fill(Color.white)
+                                        .shadow(radius: 2, y: 2)
+                                }
+                                .offset(x: vm.calculateAnnotationOffset(annotationWidth: 90, xPosition: currentLocation.x, chartWidth: geometry.size.width))
                             }
-                            .padding(6)
-                            .background {
-                                RoundedRectangle(cornerRadius: 8)
-                                    .fill(Color.white)
-                                    .shadow(radius: 2, y: 2)
-                            }
-                        }
+                    }
                 }
             }
-        }
-        .chartXAxis(.hidden)
-        .chartYAxis {
-            AxisMarks() {
-                let value = $0.as(Double.self)!
-                AxisValueLabel {
-                    Text(value.withKNotation())
-                        .foregroundColor(.pcDarkBlue)
+            .chartXAxis(.hidden)
+            .chartYAxis {
+                AxisMarks() {
+                    let value = $0.as(Double.self)!
+                    AxisValueLabel {
+                        Text(value.withKNotation())
+                            .foregroundColor(.pcDarkBlue)
+                    }
+                    AxisGridLine()
+                        .foregroundStyle(Color.pcDarkBlue.opacity(0.4))
+                        
                 }
-                AxisGridLine()
-                    .foregroundStyle(Color.pcDarkBlue.opacity(0.4))
-                    
             }
-        }
-        .chartYScale(domain: 0...vm.filteredDataForChart[vm.filteredDataForChart.count - 1].totalPushups + 300)
-        .padding()
-        .opacity(isExpanded ? 1 : 0)
-        .frame(height: isExpanded ? 180 : 0)
-        .chartOverlay(content: { proxy in
-            Rectangle()
-                .fill(.clear).contentShape(Rectangle())
-                .gesture(
-                    DragGesture()
-                        .onChanged{ value in
-                            let location = value.location
-                            if let date: Date = proxy.value(atX: location.x) {
-                                let calendar = Calendar.current
-                                if let roundedDate = calendar.date(from: calendar.dateComponents([.day, .month, .year], from: date)) {
-                                    if let index = vm.workouts.firstIndex(where: { workout in
-                                        let workoutRoundedDate = calendar.date(from: calendar.dateComponents([.day, .month, .year], from: workout.date))
-                                        return workoutRoundedDate == roundedDate
-                                    }) {
-                                        self.currentActiveData = vm.dataForChart[index]
+            .chartYScale(domain: 0...vm.filteredDataForChart[vm.filteredDataForChart.count - 1].totalPushups + 300)
+            .padding()
+            .opacity(isExpanded ? 1 : 0)
+            .frame(height: isExpanded ? 180 : 0)
+            .chartOverlay(content: { proxy in
+                Rectangle()
+                    .fill(.clear).contentShape(Rectangle())
+                    .gesture(
+                        DragGesture()
+                            .onChanged{ value in
+                                let location = value.location
+                                self.currentLocation = location
+                                if let date: Date = proxy.value(atX: location.x) {
+                                    let calendar = Calendar.current
+                                    if let roundedDate = calendar.date(from: calendar.dateComponents([.day, .month, .year], from: date)) {
+                                        if let index = vm.workouts.firstIndex(where: { workout in
+                                            let workoutRoundedDate = calendar.date(from: calendar.dateComponents([.day, .month, .year], from: workout.date))
+                                            return workoutRoundedDate == roundedDate
+                                        }) {
+                                            self.currentActiveData = vm.dataForChart[index]
+                                        }
                                     }
                                 }
                             }
-                        }
-                        .onEnded{ value in
-                            self.currentActiveData = nil
-                        }
-                )
-        })
+                            .onEnded{ value in
+                                self.currentActiveData = nil
+                            }
+                    )
+            })
         .animation(.easeInOut(duration: isExpanded ? 0.4 : 0.2), value: isExpanded)
+        }
     }
     
     
@@ -227,7 +235,7 @@ extension PCChallengeCompletionPercentageStatisticsView {
         })
         .padding(.horizontal)
         .opacity(isExpanded ? 1 : 0)
-        .offset(CGSize(width: 0, height: isExpanded ? 20 : 0))
+        .offset(CGSize(width: 0, height: isExpanded ? -5 : 0))
         .animation(.easeInOut(duration: isExpanded ? 0.4 : 0.2), value: isExpanded)
     }
 }

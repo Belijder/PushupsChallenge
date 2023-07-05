@@ -8,8 +8,7 @@
 import Foundation
 import RealmSwift
 
-final class PCChallengeCompletionPercentageStatisticsViewViewModel: ObservableObject {
-    
+final class PCChallengeCompletionPercentageStatisticsViewViewModel: ObservableObject, ChartAnnotationLayoutProtocol {
     struct DataForChart: Identifiable {
         let id: UInt64
         let date: Date

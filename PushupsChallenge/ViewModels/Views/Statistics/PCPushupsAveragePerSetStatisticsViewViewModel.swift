@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-final class PCPushupsAveragePerSetStatisticsViewViewModel: ObservableObject {
+final class PCPushupsAveragePerSetStatisticsViewViewModel: ObservableObject, ChartAnnotationLayoutProtocol {
     @ObservedResults(PCWorkout.self, sortDescriptor: SortDescriptor(keyPath: "date", ascending: false)) var workouts
     
     @Published var filteredWorkouts: [PCWorkout] = []

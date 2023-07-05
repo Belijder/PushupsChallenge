@@ -7,8 +7,9 @@
 
 import Foundation
 import RealmSwift
+import Charts
 
-final class PCPushupsAverangeStatisticsViewViewModel: ObservableObject {
+final class PCPushupsAverangeStatisticsViewViewModel: ObservableObject, ChartAnnotationLayoutProtocol {
     @ObservedResults(PCWorkout.self, sortDescriptor: SortDescriptor(keyPath: "date", ascending: false)) var workouts
     
     @Published var filteredWorkouts: [PCWorkout] = []
@@ -90,4 +91,37 @@ final class PCPushupsAverangeStatisticsViewViewModel: ObservableObject {
             filteredWorkouts30days = workouts
         }
     }
+    
+//    func calculateAnnotationPosition(xPosition: CGFloat, chartWidth: CGFloat) -> AnnotationPosition {
+//        let annotationWidth: CGFloat = 70
+//        var annotationPosition: AnnotationPosition
+//        
+//        if xPosition < annotationWidth {
+//            annotationPosition = .topTrailing
+//        } else if xPosition > (chartWidth - annotationWidth - 30) {
+//            annotationPosition = .topLeading
+//        } else {
+//            annotationPosition = .top
+//        }
+//        
+//        return annotationPosition
+//    }
+//    
+//    
+//    func calculateAnnotationOffset(xPosition: CGFloat, chartWidth: CGFloat) -> CGFloat {
+//        let annotationWidth: CGFloat = 70
+//        var offset: CGFloat
+//        
+//        if xPosition < annotationWidth {
+//            offset = -((xPosition / 2) + 10)
+//        } else if xPosition > (chartWidth - annotationWidth - 30) {
+//            
+//            let o = (chartWidth - xPosition - 30) / 2
+//            offset = o + 10
+//        } else {
+//            offset = 0
+//        }
+//        
+//        return offset
+//    }
 }
