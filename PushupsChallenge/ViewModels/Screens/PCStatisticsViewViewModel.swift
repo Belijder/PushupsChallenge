@@ -88,7 +88,13 @@ final class PCStatisticsViewViewModel: ObservableObject {
                 
                 currentCounter = 1
             }
+            
+            if longestCounter < currentCounter {
+                longestCounter = currentCounter
+                lastDayOfSeries = sortedDates[index]
+            }
         }
+        
         
         longestSeriesOfWorkoutsValue = String(longestCounter)
         
