@@ -16,7 +16,8 @@ enum PCWorkoutOverlayViewType {
         case .begin:
             return 5
         case .break:
-            return UserDefaults.standard.integer(forKey: "breakLenght")
+            let breakLenght = UserDefaults.standard.integer(forKey: "breakLenght")
+            return breakLenght != 0 ? breakLenght : 30
         }
     }
     
@@ -33,17 +34,11 @@ enum PCWorkoutOverlayViewType {
 }
 
 struct PCWorkoutOverlayView: View {
-    
-    
     @StateObject var vm: PCWorkoutOverlayViewViewModel
-    
-    
     
     init(type: PCWorkoutOverlayViewType, delegate: PCWorkoutOverlayViewViewModelProtocol?) {
         _vm = StateObject(wrappedValue: PCWorkoutOverlayViewViewModel(type: type, delegate: delegate))
     }
-    
-
     
     var body: some View {
         ZStack {
@@ -81,7 +76,6 @@ struct PCWorkoutViewOverlay_Previews: PreviewProvider {
 
 
 extension PCWorkoutOverlayView {
-    
     private var background: some View {
         LinearGradient.pcBlueGradient
             .ignoresSafeArea(.all)
@@ -128,6 +122,5 @@ extension PCWorkoutOverlayView {
             }
             Spacer()
         }
-        
     }
 }
