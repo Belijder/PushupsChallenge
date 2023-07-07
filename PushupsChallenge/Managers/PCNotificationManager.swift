@@ -21,8 +21,8 @@ final class PCNotificationManager {
     
     func createNotificationFor(reminder: PCScheduledReminder, completion: @escaping (Bool) -> Void) {
         let content = UNMutableNotificationContent()
-        content.title = "Hey! You know what time is it?"
-        content.body = "It is time to do some pushups!"
+        content.title = "You know what time is it?"
+        content.body = "It's time to do some pushups!"
         content.interruptionLevel = .critical
         content.sound = .defaultCritical
         

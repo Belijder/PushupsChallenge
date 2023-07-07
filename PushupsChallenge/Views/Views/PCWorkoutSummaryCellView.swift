@@ -11,6 +11,7 @@ import RealmSwift
 struct PCWorkoutSummaryCellView: View {
     @StateObject var vm: PCWorkoutSummaryCellViewViewModel
     @Binding var isEditing: Bool
+    @State private var showConfirmationDialog = false
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
@@ -115,8 +116,7 @@ extension PCWorkoutSummaryCellView {
     
     private var deleteButton: some View {
         Button {
-            vm.deleteWorkout()
-            PCAchievementsManager.shared.checkAchievementsCompletion()
+            showConfirmationDialog.toggle()
         } label: {
             Image(systemName: "trash")
                 .font(.system(size: 20))
@@ -129,5 +129,15 @@ extension PCWorkoutSummaryCellView {
                 }
         }
         .transition(.scale)
+        .confirmationDialog("Are you sure?", isPresented: $showConfirmationDialog) {
+            Button("Delete workout", role: .destructive) {
+                withAnimation {
+                    vm.deleteWorkout()
+                    PCAchievementsManager.shared.checkAchievementsCompletion()
+                }
+            }
+        } message: {
+            Text("This action cannot be undone.")
+        }
     }
 }
