@@ -126,21 +126,15 @@ extension PCSetRemindersView {
     
     private var actionButton: some View {
         Button {
-            for weekday in vm.selectedWeekdays {
-                vm.createReminder(for: weekday) { result in
-                    switch result {
-                    case .success(let scheduledReminder):
-                        DispatchQueue.main.async {
-                            withAnimation {
-                                $reminders.append(scheduledReminder)
-                                vm.selectedWeekdays.removeAll(where: { $0 == weekday })
-                            }
-                        }
-                    case .failure:
-                        break
+            let schleduredReminders = vm.createReminders(for: vm.selectedWeekdays)
+            for reminder in schleduredReminders {
+                DispatchQueue.main.async {
+                    withAnimation {
+                        $reminders.append(reminder)
                     }
                 }
             }
+            vm.selectedWeekdays = []
         } label: {
             Text(vm.selectedWeekdays.count > 1 ? "Set reminders" : "Set reminder")
                 .frame(height: 50)

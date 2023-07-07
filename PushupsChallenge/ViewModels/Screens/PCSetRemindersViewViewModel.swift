@@ -19,27 +19,42 @@ final class PCSetRemindersViewViewModel: ObservableObject {
         selectedWeekdays.remove(at: index)
     }
     
-    
-    func createReminder(for weekday: PCWeekday, completion: @escaping (Result<PCScheduledReminder, Error>) -> Void) {
+
+    func createReminders(for weekdays: [PCWeekday]) -> [PCScheduledReminder] {
         let calendar = Calendar.current
         var dateComponents = calendar.dateComponents([.hour, .minute], from: selectedDate)
-        dateComponents.weekday = weekday.rawValue + 1
         
-        guard let hour = dateComponents.hour,
-              let minute = dateComponents.minute
-        else {
-            return
-        }
+        let group = DispatchGroup()
+        var scheduledReminders: [PCScheduledReminder] = []
         
-        let scheduledReminder = PCScheduledReminder()
-        scheduledReminder.day = weekday
-        scheduledReminder.hour = hour
-        scheduledReminder.minute = minute
-        
-        PCNotificationManager.shared.createNotificationFor(reminder: scheduledReminder) { success in
-            if success {
-                completion(.success(scheduledReminder))
+        for weekday in weekdays {
+            group.enter()
+            dateComponents.weekday = weekday.rawValue + 1
+            
+            guard let hour = dateComponents.hour,
+                  let minute = dateComponents.minute
+            else {
+                continue
+            }
+            
+            let scheduledReminder = PCScheduledReminder()
+            scheduledReminder.day = weekday
+            scheduledReminder.hour = hour
+            scheduledReminder.minute = minute
+            
+            PCNotificationManager.shared.createNotificationFor(reminder: scheduledReminder) { success in
+                defer {
+                    group.leave()
+                }
+                
+                if success {
+                    scheduledReminders.append(scheduledReminder)
+                    print("ScheduledFor \(weekday)")
+                }
             }
         }
+        
+        group.wait()
+        return scheduledReminders
     }
 }

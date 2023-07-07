@@ -13,7 +13,7 @@ final class PCWorkoutsListViewViewModel: ObservableObject {
     @ObservedResults(PCWorkout.self, sortDescriptor: SortDescriptor(keyPath: "date", ascending: false)) var workouts
     
     @Published var filteredWorkout: [PCWorkout] = []
-    @Published var textForEmptyState = ""
+    @Published var textForEmptyState = PCWorkoutFilterOption.all.textForEmptyFilterResult
 
     
     init() {
