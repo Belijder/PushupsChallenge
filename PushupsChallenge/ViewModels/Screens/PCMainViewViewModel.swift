@@ -19,11 +19,13 @@ final class PCMainViewViewModel: ObservableObject {
     @Published var newWorkoutSheetIsPresented = false
     @Published var achievementsSheetIsPresented = false
     @Published var workoutsSummaryListISPresented = false
-    @Published var showLastWorkoutSummary = false
+    @Published var showSummary = false
     
     var lastWorkout: PCWorkout? {
         didSet {
-            showLastWorkoutSummary = true
+            DispatchQueue.main.asyncAfter(deadline: .now()) {
+                self.showSummary = true
+            }
         }
     }
 }
@@ -32,7 +34,9 @@ final class PCMainViewViewModel: ObservableObject {
 extension PCMainViewViewModel: PCWorkoutViewViewModelProtocol {
     func substractFromMainCounter() {
         withAnimation {
-            mainCounter -= 1
+            if mainCounter > 0 {
+                mainCounter -= 1
+            }
         }
     }
     

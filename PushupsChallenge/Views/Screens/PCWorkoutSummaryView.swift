@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PCWorkoutSummaryView: View {
-    @Environment(\.dismiss) var dismiss
+    @Binding var showSummary: Bool
     @State private var addBackgroundToSummary = false
     @State private var showActivityController = false
     @StateObject var vm: PCWorkoutSummaryViewViewModel
@@ -32,7 +32,7 @@ struct PCWorkoutSummaryView: View {
 
 struct PCWorkoutSummaryView_Previews: PreviewProvider {
     static var previews: some View {
-        PCWorkoutSummaryView(vm: PCWorkoutSummaryViewViewModel(workout: .example))
+        PCWorkoutSummaryView(showSummary: .constant(true), vm: PCWorkoutSummaryViewViewModel(workout: .example))
     }
 }
 
@@ -52,7 +52,7 @@ extension PCWorkoutSummaryView {
     private var closeButton: some View {
         VStack {
             Button {
-                dismiss()
+               showSummary = false
             } label: {
                 Image(systemName: "xmark")
                     .foregroundColor(.white)

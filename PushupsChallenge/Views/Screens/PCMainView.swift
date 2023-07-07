@@ -14,6 +14,7 @@ struct PCMainView: View {
     @AppStorage("firstTimeRun") var isFirstTimeRun = true
     @AppStorage("mainCounter") var mainCounter = 10000
     
+    
     var body: some View {
         ZStack {
             background
@@ -26,6 +27,7 @@ struct PCMainView: View {
                     }
                 
                 ZStack {
+                    circleBackground
                     circleProgress
                     mainCounterLabel
                         .onAppear {
@@ -39,7 +41,7 @@ struct PCMainView: View {
                             isFirstTimeRun = false
                         } content: {
                             PCTutorialView()
-                        }  
+                        }
                 }
                 .padding(.top, 50)
                 
@@ -53,9 +55,6 @@ struct PCMainView: View {
                 
                 Spacer()
                 startWorkoutButton
-                    .fullScreenCover(isPresented: $vm.showLastWorkoutSummary) {
-                        PCWorkoutSummaryView(vm: PCWorkoutSummaryViewViewModel(workout: vm.lastWorkout!))
-                    }
             }
             .sheet(isPresented: $vm.newWorkoutSheetIsPresented, content: {
                 PCWorkoutView(delegate: vm)
@@ -75,6 +74,10 @@ struct PCMainView: View {
             
             menuButton
                 .zIndex(3)
+            
+            if vm.showSummary {
+                summaryOverlay
+            }
         }
     }
 }
@@ -136,15 +139,27 @@ extension PCMainView {
     }
     
     
+    private var circleBackground: some View {
+        ZStack {
+            Circle()
+                .stroke(AngularGradient(gradient: Gradient(colors: [.pcDarkRed.opacity(0.1), .pcDarkRed.opacity(0.1), .pcLightRed.opacity(0.1), .pcDarkRed.opacity(0.1)]),
+                                        center: .center),
+                                        style: StrokeStyle(lineWidth: 15,
+                                        lineCap: mainCounter > 9000 ? .butt : .round))
+        }
+        .frame(width: 220, height: 220)
+    }
+    
+    
     private var circleProgress: some View {
         ZStack {
             Circle()
-                .trim(from: 0.0, to: CGFloat(vm.mainCounter) * 0.0001)
+                .trim(from: 0.0, to: CGFloat(mainCounter) * 0.0001)
                 .stroke(AngularGradient(gradient: Gradient(colors: [.pcDarkRed, .pcDarkRed, .pcLightRed, .pcDarkRed]),
                                         center: .center),
                                         style: StrokeStyle(lineWidth: 25,
-                                        lineCap: vm.mainCounter > 9000 ? .butt : .round))
-                .rotationEffect(.degrees(vm.mainCounter > 9000 ? -90 : -85))
+                                                           lineCap: mainCounter > 9000 || mainCounter < 500 ? .butt : .round))
+                .rotationEffect(.degrees(mainCounter > 9000 || mainCounter < 500 ? -90 : -85))
         }
         .frame(width: 220, height: 220)
     }
@@ -175,6 +190,7 @@ extension PCMainView {
         }
         .padding(.horizontal, 50)
         .padding(.bottom, 30)
+        .disabled(isFirstTimeRun)
     }
     
     
@@ -244,5 +260,18 @@ extension PCMainView {
     
     private var menuView: some View {
         PCSettingsView()
+    }
+    
+    
+    private var summaryOverlay: some View {
+        VStack {
+            if mainCounter == 0 {
+                PCChallengeSummaryView(showSummary: $vm.showSummary)
+            } else {
+                PCWorkoutSummaryView(showSummary: $vm.showSummary, vm: PCWorkoutSummaryViewViewModel(workout: vm.lastWorkout!))
+            }
+        }
+        .transition(.opacity)
+        .zIndex(4)
     }
 }

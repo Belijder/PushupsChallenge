@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4205E1A32A470363006864AA /* PCChallengeCompletionPercentageStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4205E1A22A470363006864AA /* PCChallengeCompletionPercentageStatisticsView.swift */; };
 		4205E1A52A4703D5006864AA /* PCChallengeCompletionPercentageStatisticsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4205E1A42A4703D5006864AA /* PCChallengeCompletionPercentageStatisticsViewViewModel.swift */; };
+		42570E492A58312500FA115C /* PCCompletedChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42570E482A58312500FA115C /* PCCompletedChallenge.swift */; };
 		4257C57F2A49FD63001D8ED6 /* PCSettingsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4257C57E2A49FD63001D8ED6 /* PCSettingsViewViewModel.swift */; };
 		4257C5812A4AFAEF001D8ED6 /* PCNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4257C5802A4AFAEF001D8ED6 /* PCNotificationManager.swift */; };
 		4257C5832A4AFC08001D8ED6 /* PCSetRemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4257C5822A4AFC08001D8ED6 /* PCSetRemindersView.swift */; };
@@ -70,6 +71,7 @@
 /* Begin PBXFileReference section */
 		4205E1A22A470363006864AA /* PCChallengeCompletionPercentageStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCChallengeCompletionPercentageStatisticsView.swift; sourceTree = "<group>"; };
 		4205E1A42A4703D5006864AA /* PCChallengeCompletionPercentageStatisticsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCChallengeCompletionPercentageStatisticsViewViewModel.swift; sourceTree = "<group>"; };
+		42570E482A58312500FA115C /* PCCompletedChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCCompletedChallenge.swift; sourceTree = "<group>"; };
 		4257C57E2A49FD63001D8ED6 /* PCSettingsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCSettingsViewViewModel.swift; sourceTree = "<group>"; };
 		4257C5802A4AFAEF001D8ED6 /* PCNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCNotificationManager.swift; sourceTree = "<group>"; };
 		4257C5822A4AFC08001D8ED6 /* PCSetRemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCSetRemindersView.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				427EFB2C2A31E415009A86CC /* PCWorkout.swift */,
+				42570E482A58312500FA115C /* PCCompletedChallenge.swift */,
 				42FB23592A3F22E000DEB204 /* PCAchievement.swift */,
 				42684F402A4B0BFE00713999 /* PCScheduledReminder.swift */,
 				42D17FE52A3B7973007E461F /* PCAchievementType.swift */,
@@ -443,6 +446,7 @@
 				427EFB4E2A3A389B009A86CC /* PCAchievementViewViewModel.swift in Sources */,
 				427332B22A4B240600C582C6 /* PCSetRemindersViewViewModel.swift in Sources */,
 				427EFB412A375FB7009A86CC /* PCWorkoutOverlayViewViewModel.swift in Sources */,
+				42570E492A58312500FA115C /* PCCompletedChallenge.swift in Sources */,
 				42893EDA2A498C2E008281AD /* PCSettingsView.swift in Sources */,
 				42AB9CC72A48BF6900A34AE5 /* PCTimeScale.swift in Sources */,
 				427EFB282A310013009A86CC /* Color+Ext.swift in Sources */,
