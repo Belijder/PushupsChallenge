@@ -12,7 +12,6 @@ struct PushupsChallengeApp: App {
     var body: some Scene {
         WindowGroup {
             PCMainView()
-//            PCChallengeSummaryView()
         }
     }
 }

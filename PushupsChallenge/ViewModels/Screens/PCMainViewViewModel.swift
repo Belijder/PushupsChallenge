@@ -40,6 +40,7 @@ extension PCMainViewViewModel: PCWorkoutViewViewModelProtocol {
         }
     }
     
+    
     func hideWorkoutSheet(workout: PCWorkout?) {
         newWorkoutSheetIsPresented = false
         
@@ -51,9 +52,3 @@ extension PCMainViewViewModel: PCWorkoutViewViewModelProtocol {
 
     }
 }
-
-
-
-
-
-

@@ -49,7 +49,6 @@ final class PCSetRemindersViewViewModel: ObservableObject {
                 
                 if success {
                     scheduledReminders.append(scheduledReminder)
-                    print("ScheduledFor \(weekday)")
                 }
             }
         }

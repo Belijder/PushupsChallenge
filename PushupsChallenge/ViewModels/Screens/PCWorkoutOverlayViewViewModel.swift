@@ -88,6 +88,7 @@ final class PCWorkoutOverlayViewViewModel: ObservableObject {
         }
     }
     
+    
     func mainActionButtonTapped() {
         timer?.invalidate()
         delegate?.didTappedMainButton(overlayType: type)

@@ -26,7 +26,6 @@ enum PCWorkoutFilterOption: String, CaseIterable {
 }
 
 struct PCWorkoutsListView: View {
-    
     @Environment(\.dismiss) var dismiss
     @StateObject private var vm = PCWorkoutsListViewViewModel()
     @Namespace private var namespace

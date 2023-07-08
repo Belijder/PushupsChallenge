@@ -14,11 +14,6 @@ final class PCWorkoutsListViewViewModel: ObservableObject {
     
     @Published var filteredWorkout: [PCWorkout] = []
     @Published var textForEmptyState = PCWorkoutFilterOption.all.textForEmptyFilterResult
-
-    
-    init() {
-        filteredWorkout = Array(workouts)
-    }
     
     @Published var selectedFilterOption: PCWorkoutFilterOption = .all {
         didSet {
@@ -33,6 +28,10 @@ final class PCWorkoutsListViewViewModel: ObservableObject {
             
             textForEmptyState = workouts.isEmpty ? PCWorkoutFilterOption.all.textForEmptyFilterResult : selectedFilterOption.textForEmptyFilterResult
         }
+    }
+    
+    init() {
+        filteredWorkout = Array(workouts)
     }
     
     private func filterThisWeekWorkouts() {

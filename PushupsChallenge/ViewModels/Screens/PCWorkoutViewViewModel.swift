@@ -96,24 +96,6 @@ final class PCWorkoutViewViewModel: ObservableObject, Countable {
         newWorkout.reps.append(currentReps)
         newWorkout.workoutDuration = workoutDuration
         $workouts.append(newWorkout)
-
-        
-//        RANDOM WORKOUTS
-//        let calendar = Calendar.current
-//        for number in 121...150 {
-//            let newWorkout = PCWorkout()
-//            newWorkout.date = calendar.date(byAdding: .day, value: -number, to: Date.now)!
-//            let randomArrayReps = [Int.random(in: 10...20), Int.random(in: 10...20), Int.random(in: 10...20), Int.random(in: 10...20)]
-//            let totalRandom = randomArrayReps.reduce(0, +)
-//
-//
-//            newWorkout.reps.append(objectsIn: randomArrayReps)
-//            newWorkout.totalReps = totalRandom
-//            newWorkout.workoutDuration = (totalReps * 2) + 90
-//            $workouts.append(newWorkout)
-//
-//        }
-        
         
         PCAchievementsManager.shared.checkAchievementsCompletion()
         delegate?.hideWorkoutSheet(workout: newWorkout)

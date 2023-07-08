@@ -48,7 +48,5 @@ final class PCPreferencesViewViewModel: ObservableObject {
                 self.showConfirmationMessage = false
             }
         }
-
-        print("All data deleted")
     }
 }

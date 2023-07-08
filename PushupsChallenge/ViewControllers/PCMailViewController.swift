@@ -59,7 +59,7 @@ struct PCMailViewController: UIViewControllerRepresentable {
         
         let vc = MFMailComposeViewController()
         vc.mailComposeDelegate = context.coordinator
-        vc.setToRecipients(["pushupschallenge@gmail.com"])
+        vc.setToRecipients(["pushupschallenge10k@gmail.com"])
         vc.setSubject(titleMessage)
         vc.setMessageBody("<p>How can we help you?</p>", isHTML: true)
         return vc

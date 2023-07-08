@@ -11,9 +11,7 @@ import RealmSwift
 final class PCAchievementsViewViewModel: ObservableObject {
     
     @ObservedResults(PCAchievement.self, sortDescriptor: SortDescriptor(keyPath: "id", ascending: true)) var achievements
-    
     var achievementsViewModels: [PCAchievementViewViewModel] = []
-    
     var achievementsManager = PCAchievementsManager()
     
     init() {

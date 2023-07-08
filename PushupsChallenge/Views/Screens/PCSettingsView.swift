@@ -9,7 +9,7 @@ import SwiftUI
 import MessageUI
 
 struct PCSettingsView: View {
-    
+    @Environment(\.openURL) var openURL
     @StateObject var vm = PCSettingsViewViewModel()
     
     @State private var showStatistics = false
@@ -18,8 +18,8 @@ struct PCSettingsView: View {
     @State private var showRemindersView = false
     @State private var showTutorial = false
     @State private var showPreferencesView = false
-    
     @State private var isShowingMailView = false
+    @State private var showCantsentMailAlert = false
     
     
     var body: some View {
@@ -27,7 +27,9 @@ struct PCSettingsView: View {
             LinearGradient.pcBlueGradient
                 .edgesIgnoringSafeArea(.all)
                 .shadow(color: .black.opacity(0.4), radius: 3, x: 2)
+                .zIndex(1)
             titleLabel
+                .zIndex(2)
             VStack(alignment: .leading, spacing: 20) {
                 Group {
                     previeusWorkoutsButton
@@ -47,6 +49,13 @@ struct PCSettingsView: View {
             .padding(.top, 100)
             .padding(.horizontal, 20)
             .padding(.bottom, 30)
+            .zIndex(3)
+            
+            if showCantsentMailAlert {
+                cantSendMailAllert
+                    .transition(.opacity)
+                    .zIndex(4)
+            }
         }
         .padding(.trailing, 100)
     }
@@ -160,7 +169,18 @@ extension PCSettingsView {
     private var supportCenterButton: some View {
         HStack {
             Button {
-                MFMailComposeViewController.canSendMail() ? self.isShowingMailView.toggle() : print("🔴 CANT SEND MAIL")
+                if MFMailComposeViewController.canSendMail() {
+                    self.isShowingMailView.toggle()
+                } else {
+                    withAnimation {
+                        showCantsentMailAlert = true
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        withAnimation {
+                            self.showCantsentMailAlert = false
+                        }
+                    }
+                }
             } label: {
                 Text("Support center")
                     .font(.system(size: 17, weight: .bold))
@@ -211,7 +231,7 @@ extension PCSettingsView {
     private var termOfUseButton: some View {
         HStack {
             Button {
-                //Open term of use
+                openURL(URL(string: "https://doc-hosting.flycricket.io/10k-push-ups-terms-of-use/109910ef-67f0-4528-89bb-aa8d9a73db05/terms")!)
             } label: {
                 Text("Term of use")
                     .font(.system(size: 17, weight: .regular))
@@ -225,13 +245,30 @@ extension PCSettingsView {
     private var privacyPolicyButton: some View {
         HStack {
             Button {
-                //Open privacy polocy
+                openURL(URL(string: "https://doc-hosting.flycricket.io/10k-push-ups-privacy-policy/b7e08ab6-9ccb-4c84-946a-bea62eade406/privacy")!)
             } label: {
                 Text("Privacy Policy")
                     .font(.system(size: 17, weight: .regular))
                     .foregroundColor(.pcDarkBlue)
             }
             Spacer()
+        }
+    }
+    
+    private var cantSendMailAllert: some View {
+        VStack(spacing: 10) {
+            Image(systemName: "xmark")
+                .foregroundColor(.pcDarkViolet.opacity(0.5))
+                .font(.system(size: 50, weight: .regular))
+            Text("CAN'T SEND MAIL.")
+                .multilineTextAlignment(.center)
+                .foregroundColor(.pcDarkViolet.opacity(0.5))
+                .padding(.horizontal, 20)
+        }
+        .frame(width: 200, height: 150)
+        .background {
+            Color.white.opacity(0.4)
+                .cornerRadius(16)
         }
     }
 }

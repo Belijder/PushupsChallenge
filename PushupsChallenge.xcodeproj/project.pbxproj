@@ -173,7 +173,6 @@
 			children = (
 				42FB235B2A40ABF300DEB204 /* Info.plist */,
 				4278776729DD7BC100657A18 /* PushupsChallengeApp.swift */,
-				427EFB232A30FEC8009A86CC /* Utilities */,
 				427EFB362A372BBB009A86CC /* Managers */,
 				427EFB262A30FFFE009A86CC /* Extensions */,
 				427EFB2B2A31E401009A86CC /* Model */,
@@ -192,13 +191,6 @@
 				4278776E29DD7BC600657A18 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		427EFB232A30FEC8009A86CC /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utilities;
 			sourceTree = "<group>";
 		};
 		427EFB242A30FEDB009A86CC /* Views */ = {
@@ -237,8 +229,8 @@
 				427EFB2C2A31E415009A86CC /* PCWorkout.swift */,
 				42570E482A58312500FA115C /* PCCompletedChallenge.swift */,
 				42FB23592A3F22E000DEB204 /* PCAchievement.swift */,
-				42684F402A4B0BFE00713999 /* PCScheduledReminder.swift */,
 				42D17FE52A3B7973007E461F /* PCAchievementType.swift */,
+				42684F402A4B0BFE00713999 /* PCScheduledReminder.swift */,
 				42AB9CC62A48BF6900A34AE5 /* PCTimeScale.swift */,
 				42684F422A4B0D0700713999 /* PCWeekday.swift */,
 				428BF52D2A4F0BB500F116DF /* PCSpeechLanguage.swift */,
@@ -618,7 +610,6 @@
 				INFOPLIST_FILE = PushupsChallenge/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "10K Push-ups";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -652,7 +643,6 @@
 				INFOPLIST_FILE = PushupsChallenge/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "10K Push-ups";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

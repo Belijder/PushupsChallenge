@@ -186,5 +186,4 @@ extension PCWorkoutSummaryView {
             .offset(y: -2)
         }
     }
-    
 }
