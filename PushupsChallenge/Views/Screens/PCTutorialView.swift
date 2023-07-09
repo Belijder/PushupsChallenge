@@ -17,10 +17,10 @@ struct PCTutorialView: View {
             VStack {
                 Text("How to start?")
                     .padding()
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 10)
                     .foregroundColor(.white)
                     .font(.system(size: 25, weight: .bold))
-                VStack(spacing: 50) {
+                VStack(spacing: 30) {
                     step1
                     step2
                     step3
@@ -53,7 +53,7 @@ extension PCTutorialView {
                 .multilineTextAlignment(.center)
                 .foregroundColor(.white)
                 .font(.system(size: 16, weight: .medium))
-                .padding(.horizontal, 70)
+                .padding(.horizontal, 40)
         }
     }
     
@@ -67,7 +67,7 @@ extension PCTutorialView {
                 .multilineTextAlignment(.center)
                 .foregroundColor(.white)
                 .font(.system(size: 16, weight: .medium))
-                .padding(.horizontal, 70)
+                .padding(.horizontal, 40)
             Image("TutorialImage")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -85,7 +85,7 @@ extension PCTutorialView {
                 .multilineTextAlignment(.center)
                 .foregroundColor(.white)
                 .font(.system(size: 16, weight: .medium))
-                .padding(.horizontal, 70)
+                .padding(.horizontal, 40)
         }
     }
     
@@ -102,7 +102,6 @@ extension PCTutorialView {
                 Text("Understand")
                     .foregroundColor(.white)
             }
-            
         }
         .padding(.horizontal, 70)
         .padding(.bottom, 30)
