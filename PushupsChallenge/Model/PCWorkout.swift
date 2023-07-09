@@ -21,7 +21,11 @@ final class PCWorkout: Object, ObjectKeyIdentifiable {
         let components = calendar.dateComponents([.day], from: date, to: currentDate)
         
         if let days = components.day {
-            return days == 0 ? "" : " - \(days) days ago"
+            if days == 1 {
+                return " - yesterday"
+            } else {
+                return days == 0 ? "" : " - \(days) days ago"
+            }
         } else {
             return " - Never"
         }
