@@ -38,6 +38,10 @@ struct PCChallengeSummaryView: View {
 struct PCChallengeSummaryView_Previews: PreviewProvider {
     static var previews: some View {
         PCChallengeSummaryView(showSummary: .constant(true))
+        
+        PCChallengeSummaryView(showSummary: .constant(true))
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
+            .previewDisplayName("iPhone 14")
     }
 }
 
@@ -71,7 +75,7 @@ extension PCChallengeSummaryView {
     private var titleLabel: some View {
         Text("Challenge completed!")
             .foregroundColor(.white)
-            .font(.system(size: 30, weight: .bold))
+            .font(.system(size: UIDevice.isSmallerModel() ? 25 : 30, weight: .bold))
     }
     
     
@@ -82,7 +86,7 @@ extension PCChallengeSummaryView {
                 .font(.system(size: 20, weight: .medium))
             Text(vm.totalPushupsString)
                 .foregroundColor(.pcLightBlue)
-                .font(.system(size: 80, weight: .black))
+                .font(.system(size: UIDevice.isSmallerModel() ? 60 : 80, weight: .black))
         }
     }
     
@@ -94,7 +98,7 @@ extension PCChallengeSummaryView {
                 .font(.system(size: 20, weight: .medium))
             Text(vm.totalWorkoutsString)
                 .foregroundColor(.pcLightBlue)
-                .font(.system(size: 60, weight: .black))
+                .font(.system(size: UIDevice.isSmallerModel() ? 40 : 60, weight: .black))
         }
     }
     
@@ -106,7 +110,7 @@ extension PCChallengeSummaryView {
                 .font(.system(size: 20, weight: .medium))
             Text(vm.daysSinceFirstWorkoutString)
                 .foregroundColor(.pcLightBlue)
-                .font(.system(size: 60, weight: .black))
+                .font(.system(size: UIDevice.isSmallerModel() ? 40 : 60, weight: .black))
         }
     }
     
@@ -118,18 +122,21 @@ extension PCChallengeSummaryView {
                 .font(.system(size: 20, weight: .medium))
             Text(vm.totalWorkoutsDurationString)
                 .foregroundColor(.pcLightBlue)
-                .font(.system(size: 42, weight: .black))
+                .font(.system(size: UIDevice.isSmallerModel() ? 32 : 42, weight: .black))
         }
     }
     
     
     private var summary: some View {
-        VStack(spacing: 30) {
-            titleLabel
-            totalPushups
-            totalWorkouts
-            daysSinceFirstWorkout
-            totalDurationduration
+        VStack {
+            VStack(spacing: UIDevice.isSmallerModel() ? 20 : 30) {
+                titleLabel
+                totalPushups
+                totalWorkouts
+                daysSinceFirstWorkout
+                totalDurationduration
+            }
+            
         }
         .padding([.horizontal, .bottom], 40)
         .padding(.top, addBackgroundToSummary == true ? 80 : 20)

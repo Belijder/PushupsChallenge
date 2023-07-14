@@ -20,7 +20,7 @@ struct PCTutorialView: View {
                     .padding(.bottom, 10)
                     .foregroundColor(.white)
                     .font(.system(size: 25, weight: .bold))
-                VStack(spacing: 30) {
+                VStack(spacing: UIDevice.isSmallerModel() ? 30 : 40) {
                     step1
                     step2
                     step3
@@ -40,6 +40,9 @@ struct PCTutorialView: View {
 struct PCTutorialView_Previews: PreviewProvider {
     static var previews: some View {
         PCTutorialView()
+        PCTutorialView()
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
+            .previewDisplayName("iPhone 14")
     }
 }
 
@@ -52,7 +55,7 @@ extension PCTutorialView {
             Text("Put your phone on the floor \nand press Start Workout button.")
                 .multilineTextAlignment(.center)
                 .foregroundColor(.white)
-                .font(.system(size: 16, weight: .medium))
+                .font(.system(size: UIDevice.isSmallerModel() ? 12 : 16, weight: .medium))
                 .padding(.horizontal, 40)
         }
     }
@@ -66,7 +69,7 @@ extension PCTutorialView {
             Text("Get into the position in which you will perform push-ups so that the phone is between your hands at the height of your chest.")
                 .multilineTextAlignment(.center)
                 .foregroundColor(.white)
-                .font(.system(size: 16, weight: .medium))
+                .font(.system(size: UIDevice.isSmallerModel() ? 12 : 16, weight: .medium))
                 .padding(.horizontal, 40)
             Image("TutorialImage")
                 .resizable()
@@ -84,7 +87,7 @@ extension PCTutorialView {
             Text("Do push-up until you hear a sound confirming the completion of the repetition.")
                 .multilineTextAlignment(.center)
                 .foregroundColor(.white)
-                .font(.system(size: 16, weight: .medium))
+                .font(.system(size: UIDevice.isSmallerModel() ? 12 : 16, weight: .medium))
                 .padding(.horizontal, 40)
         }
     }

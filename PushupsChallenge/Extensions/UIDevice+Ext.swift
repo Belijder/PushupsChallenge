@@ -18,4 +18,15 @@ extension UIDevice {
         }
         return identifier
     }
+    
+    static func isSmallerModel() -> Bool {
+        let deviceModel = UIDevice.current.model
+        let deviceName = UIDevice.current.name
+
+        if deviceModel == "iPhone" && deviceName.contains("SE") || deviceName.contains("mini") || deviceName.contains("8") || deviceName.contains("X") {
+            return true
+        } else {
+            return false
+        }
+    }
 }

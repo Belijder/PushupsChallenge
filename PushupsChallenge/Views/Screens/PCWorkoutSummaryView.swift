@@ -33,6 +33,14 @@ struct PCWorkoutSummaryView: View {
 struct PCWorkoutSummaryView_Previews: PreviewProvider {
     static var previews: some View {
         PCWorkoutSummaryView(showSummary: .constant(true), vm: PCWorkoutSummaryViewViewModel(workout: .example))
+        
+        PCWorkoutSummaryView(showSummary: .constant(true), vm: PCWorkoutSummaryViewViewModel(workout: .example))
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
+            .previewDisplayName("iPhone 14")
+        
+        PCWorkoutSummaryView(showSummary: .constant(true), vm: PCWorkoutSummaryViewViewModel(workout: .example))
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro Max"))
+            .previewDisplayName("iPhone 14 Pro Max")
     }
 }
 
@@ -141,11 +149,40 @@ extension PCWorkoutSummaryView {
     
     
     private var summary: some View {
-        VStack(spacing: 50) {
-            titleLabel
-            totalReps
-            sets
-            duration
+        VStack {
+            if UIDevice.isSmallerModel() {
+                VStack {
+                    titleLabel
+                    Spacer()
+                    totalReps
+                    Spacer()
+                    if vm.sets.count > 4 {
+                        ScrollView(.horizontal) {
+                            sets
+                        }
+                        .scrollIndicators(.hidden)
+                    } else {
+                        sets
+                    }
+                    Spacer()
+                    duration
+                }
+                .padding(.bottom, 80)
+            } else {
+                VStack(spacing: 50) {
+                    titleLabel
+                    totalReps
+                    if vm.sets.count > 4 {
+                        ScrollView(.horizontal) {
+                            sets
+                        }
+                        .scrollIndicators(.hidden)
+                    } else {
+                        sets
+                    }
+                    duration
+                }
+            }
         }
         .padding(40)
         .padding(.top, 40)
@@ -155,9 +192,9 @@ extension PCWorkoutSummaryView {
                 ZStack {
                     Image("LaunchScreen")
                         .resizable()
-                    .ignoresSafeArea()
+                        .ignoresSafeArea()
                     LinearGradient.pcVioletGradient.opacity(0.9)
-                    .edgesIgnoringSafeArea(.all)
+                        .edgesIgnoringSafeArea(.all)
                 }
             }
         }

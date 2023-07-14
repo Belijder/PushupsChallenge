@@ -24,6 +24,3 @@ final class PCWorkoutSummaryViewViewModel: ObservableObject {
         sets = Array(workout.reps)
     }
 }
-
-
-
